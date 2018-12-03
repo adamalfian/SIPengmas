@@ -1,3 +1,10 @@
+<?php 
+	include('functions.php');
+	if (!isLoggedIn()) {
+	$_SESSION['msg'] = "You must log in first";
+	header('location: login.php');
+}
+?>
 <!DOCTYPE HTML>
 <!--
 	Aesthetic by gettemplates.co
@@ -65,32 +72,38 @@
 				
 				<div class="row">
 					<div class="col-sm-2 col-xs-12">
-						<div id="gtco-logo"><a href="index.html"><img src="images/logo.png" alt="Free HTML5 Website Template by GetTemplates.co"></a></div>
+						<div id="gtco-logo"><a href="index.php"><img src="images/logo.png" alt="Free HTML5 Website Template by GetTemplates.co"></a></div>
 					</div>
 					<div class="col-xs-10 text-right menu-1">
 						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li><a href="about.html">About</a></li>
+							<li class="active"><a href="halo.html">Home</a></li>
+							<li><a href="about.php">Informasi</a></li>
 							<li class="has-dropdown">
-								<a href="services.html">Services</a>
+								<a href="#">Kegiatan</a>
 								<ul class="dropdown">
-									<li><a href="#">Web Design</a></li>
-									<li><a href="#">eCommerce</a></li>
-									<li><a href="#">Branding</a></li>
-									<li><a href="#">API</a></li>
+									<li><a href="pengmas.php">Pengabdian Masyarakat</a></li>
+									<li><a href="donasi.php">Donasi</a></li>
 								</ul>
 							</li>
-							<li class="has-dropdown">
-								<a href="#">Dropdown</a>
-								<ul class="dropdown">
-									<li><a href="#">HTML5</a></li>
-									<li><a href="#">CSS3</a></li>
-									<li><a href="#">Sass</a></li>
-									<li><a href="#">jQuery</a></li>
-								</ul>
-							</li>
-							<li><a href="portfolio.html">Portfolio</a></li>
-							<li class="active"><a href="contact.html">Contact</a></li>
+							<?php if (!isLoggedIn())
+								echo "<li><a href='login.php'>Login</a></li>";
+							else
+								echo "<li class='has-dropdown'>
+									<a href=>". $_SESSION["username"] ."</a>
+									<ul class='dropdown'>
+										<li><a href='daftar_kegiatan.php'>Ikut kegiatan Pengmas</a></li>
+										<li><a href='kegiatan_donasi.php'>Ikut kegiatan Donasi</a></li>
+										<li><a href='upload_Pembayaran.php'>Bayar kegiatan donasi</a></li>
+										<li><a href='profil.php'>Melihat Profil</a></li>
+										<li><a href='sertif.php'>Sertifikat</a></li>
+										<li><a href='index.php?logout=1'>logout</a></li>
+									</ul>
+								</li>"								
+								// echo "<li><a href='index.php?logout=1'>". $_SESSION["username"] ."</a></li>";
+								// echo "<li><form method='POST'>
+								// 		<input type='submit' name='logout_btn' value='Logout'>
+								// 	  </form></li>";
+							?>
 						</ul>
 					</div>
 				</div>
@@ -98,76 +111,85 @@
 			</div>
 		</nav>
 
-		<header id="gtco-header" class="gtco-cover gtco-cover-xs gtco-inner" role="banner">
-			<div class="gtco-container">
-				<div class="row">
-					<div class="col-md-12 col-md-offset-0 text-left">
-						<div class="display-t">
-							<div class="display-tc">
-								<div class="row">
-									<div class="col-md-8">
-										<h1 class="no-margin">Contact</h1>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia facilis, accusamus iusto animi.</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</header>
+		
 		<!-- END #gtco-header -->
 
-		
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
 
-		<div class="gtco-section">
-			<div class="gtco-container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2 gtco-heading text-center">
-						<h2>Get In Touch</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus placerat enim et urna sagittis, rhoncus euismod erat tincidunt. Donec tincidunt volutpat erat.</p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6">
-						<form action="#">
-							<div class="form-group">
-								<label for="name">Name</label>
-								<input type="text" class="form-control" id="name">
+<div id="colorlib-contact">
+		<div class="container">
+			<div class="row">
+				
+				<div class="col-md-10 col-md-offset-1 animate-box">
+					<h1 style="text-align: center;">Form Daftar Kegiatan Donasi</h1>
+					<form action="insert_donasi.php" method="post">
+					
+						<div class="form-group row">
+                                            <label class="col-lg-6" for="val-skill">Donasi<span class="text-danger">*</span></label>
+                                            <div class="col-lg-12">
+                                                <select class="form-control" id="val-skill" name="ikut_kegiatan">
+                                                    <option value="">
+                                                    	Pilih Salah Satu Kegiatan Donasi !
+                                                    </option>
+                                                    <option value="Lapindo">
+                                                    	Korban Lumpur Lapindo
+                                                    </option>
+                                                    <option value="Bom">Santunan Keluarga Korban Bom Teroris</option>
+                                                    <option value="Sedekah">Menolong Yang Tidak Mampu</option>
+                                                </select>
+                                            </div>
+                                        </div>
+						<div class="row form-group">
+							<div class="col-md-6">
+								<label for="Nama">Nama</label>
+								<input type="text" id="Nama" class="form-control mb" placeholder="Nama" name="nama_peserta">
 							</div>
-							<div class="form-group">
-								<label for="name">Email</label>
-								<input type="text" class="form-control" id="email">
+
+							<div class="col-md-6">
+								<label for="kelamin">Jenis Kelamin</label>
+								<select class="form-control" id="val-skill" name="jk_peserta">
+                                                    <option value="L">Laki-Laki</option>
+                                                    <option value="P">Perempuan</option>
+                                                </select>
 							</div>
-							<div class="form-group">
-								<label for="message"></label>
-								<textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
-							</div>
-							<div class="form-group">
-								<input type="submit" class="btn btn btn-special" value="Send Message">
-							</div>
-						</form>
-					</div>
-					<div class="col-md-5 col-md-push-1">
-						<div class="gtco-contact-info">
-							<h3>Our Address</h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							<ul >
-								<li class="address">198 West 21th Street, Suite 721 New York NY 10016</li>
-								<li class="phone"><a href="tel://1234567890">1235 2355 980</a></li>
-								<li class="email"><a href="#">info@yoursite.com</a></li>
-								<li class="url"><a href="#">www.yoursite.com</a></li>
-							</ul>
 						</div>
-					</div>
+
+						<div class="row form-group">
+							<div class="col-md-12">
+								<label for="Telp">No. Telepon</label>
+								<input type="text" id="Telp" class="form-control" placeholder="Nomor Telepon Aktif" name="nohp_peserta">
+							</div>
+						</div>
+
+						<div class="row form-group">
+							<div class="col-md-12">
+								<label for="Alamat">Alamat</label>
+								<input type="text" id="Alamat" class="form-control" placeholder="Alamat Saat Ini" name="alamat_peserta">
+							</div>
+						</div>
+
+						<div class="row form-group">
+							<div class="col-md-12">
+								<label for="Alamat">Angkatan</label>
+								<input type="text" id="Angkatan" class="form-control" placeholder="Angkatan Masuk" name="angkatan_peserta">
+							</div>
+						</div>
+
+						<div class="form-group text-center">
+							<input type="submit" value="Submit" class="btn btn-primary">
+						</div>
+
+					</form>		
 				</div>
 			</div>
 		</div>
-		<!-- END .gtco-services -->
-
-		
-		<div id="map"></div>
-		
+	</div>		
+		<!-- END .gtco-client -->
 
 		<footer id="gtco-footer" class="gtco-section" role="contentinfo">
 			<div class="gtco-container">
@@ -215,8 +237,6 @@
 			
 		</footer>
 
-	</div>
-
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
 	</div>
@@ -234,11 +254,6 @@
 	<!-- Magnific Popup -->
 	<script src="js/jquery.magnific-popup.min.js"></script>
 	<script src="js/magnific-popup-options.js"></script>
-
-	<!-- Google Map -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
-	<script src="js/google_map.js"></script>
-	
 	<!-- Main -->
 	<script src="js/main.js"></script>
 

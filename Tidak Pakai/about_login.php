@@ -1,3 +1,10 @@
+<?php 
+	include('functions.php');
+	if (!isLoggedIn()) {
+	$_SESSION['msg'] = "You must log in first";
+	header('location: login.php');
+}
+?>
 <!DOCTYPE HTML>
 <!--
 	Aesthetic by gettemplates.co
@@ -63,37 +70,38 @@
 		<nav class="gtco-nav" role="navigation">
 			<div class="gtco-container">
 				
-				<div class="row">
+								<div class="row">
 					<div class="col-sm-2 col-xs-12">
-						<div id="gtco-logo"><a href="index.html"><img src="images/logo.png" alt="Free HTML5 Website Template by GetTemplates.co"></a></div>
+						<div id="gtco-logo"><a href="index.php"><img src="images/logo.png" alt="Free HTML5 Website Template by GetTemplates.co"></a></div>
 					</div>
 					<div class="col-xs-10 text-right menu-1">
 						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li><a href="about.html">About</a></li>
+							<li class="active"><a href="halo.html">Home</a></li>
+							<li><a href="about.php">Informasi</a></li>
 							<li class="has-dropdown">
-								<a href="services.html">Services</a>
+								<a href="#">Kegiatan</a>
 								<ul class="dropdown">
-									<li><a href="#">Web Design</a></li>
-									<li><a href="#">eCommerce</a></li>
-									<li><a href="#">Branding</a></li>
-									<li><a href="#">API</a></li>
+									<li><a href="pengmas.php">Pengabdian Masyarakat</a></li>
+									<li><a href="donasi.php">Donasi</a></li>
 								</ul>
 							</li>
+							
 							<li class="has-dropdown">
-								<a href="#">Dropdown</a>
+								<a href="#">Halo !</a>
 								<ul class="dropdown">
-									<li><a href="#">HTML5</a></li>
-									<li><a href="#">CSS3</a></li>
-									<li><a href="#">Sass</a></li>
-									<li><a href="#">jQuery</a></li>
+									<li><a href="daftar_kegiatan.php'">Ikut kegiatan Pengmas</a></li>
+									<li><a href="kegiatan_donasi.php">Ikut kegiatan Donasi</a></li>
+									<li><a href="upload_Pembayaran.php">Bayar kegiatan donasi</a></li>
+									<li><a href="profil.php">Melihat Profil</a></li>
+									<li><a href="sertif.php">Sertifikat</a></li>
+									<li><a href="logout.php">Logout</a></li>
+
 								</ul>
 							</li>
-							<li class="active"><a href="portfolio.html">Portfolio</a></li>
-							<li><a href="contact.html">Contact</a></li>
 						</ul>
 					</div>
 				</div>
+
 				
 			</div>
 		</nav>
@@ -106,8 +114,10 @@
 							<div class="display-tc">
 								<div class="row">
 									<div class="col-md-8">
-										<h1 class="no-margin">Portfolio</h1>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia facilis, accusamus iusto animi.</p>
+										<h1 class="no-margin">Tentang Kami</h1>
+										<br>
+										<p>Himpunan Mahasiswa Teknik Computer-Informatika</p>
+										<p>Departemen Hubungan Luar, Divisi Pengabdian Masyarakat</p>
 									</div>
 								</div>
 							</div>
@@ -120,12 +130,12 @@
 
 		
 
-		<div class="gtco-section">
+		<div class="gtco-services gtco-section">
 			<div class="gtco-container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 gtco-heading text-center">
-						<h2>Check Our Works</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus placerat enim et urna sagittis, rhoncus euismod erat tincidunt. Donec tincidunt volutpat erat.</p>
+						<h2>Ini kami</h2>
+						<p>Figur-figur penting yang berperan menyukseskan kegiatan pengmas dan donasi HMTC 2018</p>
 					</div>
 				</div>
 				<div class="row">
@@ -133,70 +143,56 @@
 					<div class="col-md-12">
 						<div class="owl-carousel owl-carousel-carousel">
 							<div class="item">
-								<div class="gtco-item">
-									<a href="#"><img src="images/img_1.jpg" alt="" class="img-responsive"></a>
-									<h2><a href="#">Paper Cup</h2></a>
-									<p class="role">Web Design &amp; Mobile</p>
+								<div class="gtco-staff">
+									<img src="images/subhan.jpg" alt="" class="img-responsive">
+									<h2>Subhan Maulana</h2>
+									<p class="role">Kepala Departemen Hubungan Luar</p>
+									
 								</div>
 							</div>
 							<div class="item">
-								<div class="gtco-item">
-									<a href="#"><img src="images/img_2.jpg" alt="" class="img-responsive"></a>
-									<h2><a href="#">Notepad Mockup</h2></a>
-									<p class="role">Web Design</p>
+								<div class="gtco-staff">
+									<img src="images/bela.jpg" alt="" class="img-responsive">
+									<h2>Nabilah Zaki Lismia</h2>
+									<p class="role">Sekretaris Departemen Hubungan Luar</p>
+									
 								</div>
 							</div>
 							<div class="item">
-								<div class="gtco-item">
-									<a href="#"><img src="images/img_3.jpg" alt="" class="img-responsive"></a>
-									<h2><a href="#">Fancy 3D text</h2></a>
-									<p class="role">UI/UX</p>
+								<div class="gtco-staff">
+									<img src="images/aqil.jpg" alt="" class="img-responsive">
+									<h2>Firman Aqil</h2>
+									<p class="role">Ketua HMTC</p>
 								</div>
 							</div>
 
 							<div class="item">
-								<div class="gtco-item">
-									<a href="#"><img src="images/img_1.jpg" alt="" class="img-responsive"></a>
-									<h2><a href="#">Paper Cup</h2></a>
-									<p class="role">Mobile App</p>
-								</div>
-							</div>
-							<div class="item">
-								<div class="gtco-item">
-									<a href="#"><img src="images/img_2.jpg" alt="" class="img-responsive"></a>
-									<h2><a href="#">Notepad Mockup</h2></a>
-									<p class="role">Branding</p>
-								</div>
-							</div>
-							<div class="item">
-								<div class="gtco-item">
-									<a href="#"><img src="images/img_3.jpg" alt="" class="img-responsive"></a>
-									<h2><a href="#">Fancy 3D text</h2></a>
-									<p class="role">UI/UX</p>
+								<div class="gtco-staff">
+									<img src="images/nopal.jpg" alt="" class="img-responsive">
+									<h2>Naufal Pranasetyo</h2>
+									<p class="role">Kepala Divisi, Pengabdian Masyarakat</p>
+									
 								</div>
 							</div>
 
 							<div class="item">
-								<div class="gtco-item">
-									<a href="#"><img src="images/img_1.jpg" alt="" class="img-responsive"></a>
-									<h2><a href="#">Paper Cup</h2></a>
-									<p class="role">Web Design</p>
+								<div class="gtco-staff">
+									<img src="images/pur.jpg" alt="" class="img-responsive">
+									<h2>Fariz Maulana Purnomo</h2>
+									<p class="role">Staff Divisi, Pengabdian Masyarakat</p>
+									
 								</div>
 							</div>
-							<div class="item">
-								<div class="gtco-item">
-									<a href="#"><img src="images/img_2.jpg" alt="" class="img-responsive"></a>
-									<h2><a href="#">Notepad Mockup</h2></a>
-									<p class="role">Branding &amp; UI</p>
+
+														<div class="item">
+								<div class="gtco-staff">
+									<img src="images/parijal.jpg" alt="" class="img-responsive">
+									<h2>Fakhrizal Naufal</h2>
+									<p class="role">Staff Divisi, Pengabdian Masyarakat</p>
+									
 								</div>
 							</div>
-							<div class="item">
-								<div class="gtco-item">
-									<a href="#"><img src="images/img_3.jpg" alt="" class="img-responsive"></a>
-									<h2><a href="#">Fancy 3D text</h2></a>
-									<p class="role">Illustrator</p>
-								</div>
-							</div>
+							
 						</div>
 					</div>
 					
@@ -205,60 +201,7 @@
 		</div>
 		<!-- END .gtco-services -->
 
-		
-
-		<div class="gtco-section gtco-testimonial gtco-gray">
-			<div class="gtco-container">
-
-				<div class="row row-pb-sm">
-					<div class="col-md-8 col-md-offset-2 gtco-heading text-center">
-						<h2>People Love Us</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus placerat enim et urna sagittis, rhoncus euismod erat tincidunt. Donec tincidunt volutpat erat.</p>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-md-6 col-sm-6 animate-box">
-						<div class="gtco-testimony gtco-left">
-							<div><img src="images/person_1.jpg" alt="Free Website template by GetTemplates.co"></div>
-							<blockquote>
-								<p>&ldquo;Design must be functional and functionality must be translated into visual aesthetics, without any reliance on gimmicks that have to be explained.&rdquo; <cite class="author">&mdash; Ferdinand A. Porsche</cite></p>
-							</blockquote>	
-						</div>
-					</div>
-
-					<div class="col-md-6 col-sm-6 animate-box">
-						<div class="gtco-testimony gtco-left">
-							<div><img src="images/person_2.jpg" alt="Free Website template by GetTemplates.co"></div>
-							<blockquote>
-								<p>&ldquo;Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn’t really do it, they just saw something. It seemed obvious to them after a while.&rdquo; <cite class="author">&mdash; Steve Jobs</cite></p>
-							</blockquote>	
-						</div>
-					</div>
-
-					
-				</div>
-				<div class="row">
-					<div class="col-md-6 col-sm-6 animate-box">
-						<div class="gtco-testimony gtco-left">
-							<div><img src="images/person_3.jpg" alt="Free Website template by GetTemplates.co"></div>
-							<blockquote>
-								<p>&ldquo;I think design would be better if designers were much more skeptical about its applications. If you believe in the potency of your craft, where you choose to dole it out is not something to take lightly.&rdquo; <cite class="author">&mdash; Frank Chimero</cite></p>
-							</blockquote>	
-						</div>
-					</div>
-
-					<div class="col-md-6 col-sm-6 animate-box">
-						<div class="gtco-testimony gtco-left">
-							<div><img src="images/person_1.jpg" alt="Free Website template by GetTemplates.co"></div>
-							<blockquote>
-								<p>&ldquo;Design must be functional and functionality must be translated into visual aesthetics, without any reliance on gimmicks that have to be explained.&rdquo; <cite class="author">&mdash; Ferdinand A. Porsche</cite></p>
-							</blockquote>	
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+	
 		
 
 		<footer id="gtco-footer" class="gtco-section" role="contentinfo">
@@ -304,7 +247,6 @@
 					</div>
 				</div>
 			</div>
-			
 		</footer>
 
 	</div>
@@ -321,11 +263,16 @@
 	<script src="js/bootstrap.min.js"></script>
 	<!-- Waypoints -->
 	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- countTo -->
+	<script src="js/jquery.countTo.js"></script>
 	<!-- Carousel -->
 	<script src="js/owl.carousel.min.js"></script>
 	<!-- Magnific Popup -->
 	<script src="js/jquery.magnific-popup.min.js"></script>
 	<script src="js/magnific-popup-options.js"></script>
+
+	
+	
 	<!-- Main -->
 	<script src="js/main.js"></script>
 

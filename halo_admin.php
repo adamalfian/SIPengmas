@@ -1,3 +1,11 @@
+<?php 
+include('functions.php');
+
+if (!isAdmin()) {
+	$_SESSION['msg'] = "You must log in first";
+	header('location: login.php');
+}
+?>
 <!DOCTYPE HTML>
 <!--
 	Aesthetic by gettemplates.co
@@ -63,43 +71,42 @@
 		<nav class="gtco-nav" role="navigation">
 			<div class="gtco-container">
 				
-								<div class="row">
+				<div class="row">
 					<div class="col-sm-2 col-xs-12">
-						<div id="gtco-logo"><a href="index.html"><img src="images/logo.png" alt="Free HTML5 Website Template by GetTemplates.co"></a></div>
+						<div id="gtco-logo"><a href="index.php"><img src="images/logo.png" alt="Free HTML5 Website Template by GetTemplates.co"></a></div>
 					</div>
 					<div class="col-xs-10 text-right menu-1">
-						<ul>
-							<li class="active"><a href="index.html">Home</a></li>
-							<li><a href="about.html">Informasi</a></li>
+						<ul>							
 							<li class="has-dropdown">
-								<a href="services.html">Kegiatan</a>
+								<?php echo "<a href=>Admin ". $_SESSION["username"] ."</a>" ?>
 								<ul class="dropdown">
-									<li><a href="pengmas.html">Pengabdian Masyarakat</a></li>
-									<li><a href="donasi.html">Donasi</a></li>
+									<li><a href="admin/verifikasi_pembayaran.php">Verifikasi Bukti Pembayaran</a></li>
+									<li><a href="admin/tambah_saldo.html">Pengendalian Duit Virtual</a></li>
+									<li><a href="admin/verifikasi_user.php">Verifikasi Akun Baru</a></li>
+									<li><a href="index.php?logout=1">Logout</a></li>
 								</ul>
 							</li>
-							
-							<li><a href="login.html">Login</a></li>
 						</ul>
 					</div>
 				</div>
-
 				
 			</div>
 		</nav>
 
-		<header id="gtco-header" class="gtco-cover gtco-cover-xs gtco-inner" role="banner">
+		<header id="gtco-header" class="gtco-cover" role="banner">
 			<div class="gtco-container">
 				<div class="row">
 					<div class="col-md-12 col-md-offset-0 text-left">
 						<div class="display-t">
 							<div class="display-tc">
 								<div class="row">
-									<div class="col-md-8">
-										<h1 class="no-margin">Tentang Kami</h1>
-										<br>
-										<p>Himpunan Mahasiswa Teknik Computer-Informatika</p>
-										<p>Departemen Hubungan Luar, Divisi Pengabdian Masyarakat</p>
+									<div class="col-md-5 text-center header-img">
+										<img src="images/logo-hmtc.jpg" alt="Free HTML5 Website Template by GetTemplates.co">
+									</div>
+									<div class="col-md-7 copy">
+										<h1>Sistem Informasi Kegiatan Pengabdian Masyarakat dan Donasi</h1>
+										<p>Departemen Hubungan Luar, Himpunan Mahasiswa Teknik Computer-Informatika (HMTC)</p>
+										
 									</div>
 								</div>
 							</div>
@@ -108,83 +115,6 @@
 				</div>
 			</div>
 		</header>
-		<!-- END #gtco-header -->
-
-		
-
-		<div class="gtco-services gtco-section">
-			<div class="gtco-container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2 gtco-heading text-center">
-						<h2>Ini kami</h2>
-						<p>Figur-figur penting yang berperan menyukseskan kegiatan pengmas dan donasi HMTC 2018</p>
-					</div>
-				</div>
-				<div class="row">
-
-					<div class="col-md-12">
-						<div class="owl-carousel owl-carousel-carousel">
-							<div class="item">
-								<div class="gtco-staff">
-									<img src="images/subhan.jpg" alt="" class="img-responsive">
-									<h2>Subhan Maulana</h2>
-									<p class="role">Kepala Departemen Hubungan Luar</p>
-									
-								</div>
-							</div>
-							<div class="item">
-								<div class="gtco-staff">
-									<img src="images/bela.jpg" alt="" class="img-responsive">
-									<h2>Nabilah Zaki Lismia</h2>
-									<p class="role">Sekretaris Departemen Hubungan Luar</p>
-									
-								</div>
-							</div>
-							<div class="item">
-								<div class="gtco-staff">
-									<img src="images/aqil.jpg" alt="" class="img-responsive">
-									<h2>Firman Aqil</h2>
-									<p class="role">Ketua HMTC</p>
-								</div>
-							</div>
-
-							<div class="item">
-								<div class="gtco-staff">
-									<img src="images/nopal.jpg" alt="" class="img-responsive">
-									<h2>Naufal Pranasetyo</h2>
-									<p class="role">Kepala Divisi, Pengabdian Masyarakat</p>
-									
-								</div>
-							</div>
-
-							<div class="item">
-								<div class="gtco-staff">
-									<img src="images/pur.jpg" alt="" class="img-responsive">
-									<h2>Fariz Maulana Purnomo</h2>
-									<p class="role">Staff Divisi, Pengabdian Masyarakat</p>
-									
-								</div>
-							</div>
-
-														<div class="item">
-								<div class="gtco-staff">
-									<img src="images/parijal.jpg" alt="" class="img-responsive">
-									<h2>Fakhrizal Naufal</h2>
-									<p class="role">Staff Divisi, Pengabdian Masyarakat</p>
-									
-								</div>
-							</div>
-							
-						</div>
-					</div>
-					
-				</div>
-			</div>
-		</div>
-		<!-- END .gtco-services -->
-
-	
-		
 
 		<footer id="gtco-footer" class="gtco-section" role="contentinfo">
 			<div class="gtco-container">
@@ -229,6 +159,7 @@
 					</div>
 				</div>
 			</div>
+		
 		</footer>
 
 	</div>
@@ -245,16 +176,11 @@
 	<script src="js/bootstrap.min.js"></script>
 	<!-- Waypoints -->
 	<script src="js/jquery.waypoints.min.js"></script>
-	<!-- countTo -->
-	<script src="js/jquery.countTo.js"></script>
 	<!-- Carousel -->
 	<script src="js/owl.carousel.min.js"></script>
 	<!-- Magnific Popup -->
 	<script src="js/jquery.magnific-popup.min.js"></script>
 	<script src="js/magnific-popup-options.js"></script>
-
-	
-	
 	<!-- Main -->
 	<script src="js/main.js"></script>
 

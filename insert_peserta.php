@@ -11,6 +11,6 @@
 
             $sql = "INSERT INTO kegiatan VALUES(NULL,'$ikut_kegiatan', '$nama_peserta', '$jk_peserta', '$nohp_peserta', '$alamat_peserta','$angkatan_peserta')";
             mysqli_query($db, $sql);
-            header("location: index.html"); //redirect to home page
+            header("location: index.php"); //redirect to home page
         
 ?> 

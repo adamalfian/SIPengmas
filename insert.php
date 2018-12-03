@@ -12,6 +12,6 @@
 
             $sql = "INSERT INTO users VALUES(NULL, '$nama_users', '$jk_users', '$nohp_users', '$alamat_users','$angkatan_users','$username_users','$password_users')";
             mysqli_query($db, $sql);
-            header("location: index.html"); //redirect to home page
+            header("location: index.php"); //redirect to home page
         
 ?> 

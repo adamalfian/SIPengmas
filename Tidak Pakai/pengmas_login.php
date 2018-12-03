@@ -1,3 +1,10 @@
+<?php 
+	include('functions.php');
+	if (!isLoggedIn()) {
+	$_SESSION['msg'] = "You must log in first";
+	header('location: login.php');
+}
+?>
 <!DOCTYPE HTML>
 <!--
 	Aesthetic by gettemplates.co
@@ -65,21 +72,32 @@
 				
 				<div class="row">
 					<div class="col-sm-2 col-xs-12">
-						<div id="gtco-logo"><a href="index.html"><img src="images/logo.png" alt="Free HTML5 Website Template by GetTemplates.co"></a></div>
+						<div id="gtco-logo"><a href="index.php"><img src="images/logo.png" alt="Free HTML5 Website Template by GetTemplates.co"></a></div>
 					</div>
 					<div class="col-xs-10 text-right menu-1">
 						<ul>
-							<li class="active"><a href="index.html">Home</a></li>
-							<li><a href="about.html">Informasi</a></li>
+							<li class="active"><a href="halo.html">Home</a></li>
+							<li><a href="about.php">Informasi</a></li>
 							<li class="has-dropdown">
-								<a href="services.html">Kegiatan</a>
+								<a href="#">Kegiatan</a>
 								<ul class="dropdown">
-									<li><a href="pengmas.html">Pengabdian Masyarakat</a></li>
-									<li><a href="donasi.html">Donasi</a></li>
+									<li><a href="pengmas.php">Pengabdian Masyarakat</a></li>
+									<li><a href="donasi.php">Donasi</a></li>
 								</ul>
 							</li>
 							
-							<li><a href="login.html">Login</a></li>
+							<li class="has-dropdown">
+								<a href="#">Halo !</a>
+								<ul class="dropdown">
+									<li><a href="daftar_kegiatan.php'">Ikut kegiatan Pengmas</a></li>
+									<li><a href="kegiatan_donasi.php">Ikut kegiatan Donasi</a></li>
+									<li><a href="upload_Pembayaran.php">Bayar kegiatan donasi</a></li>
+									<li><a href="profil.php">Melihat Profil</a></li>
+									<li><a href="sertif.php">Sertifikat</a></li>
+									<li><a href="logout.php">Logout</a></li>
+
+								</ul>
+							</li>
 						</ul>
 					</div>
 				</div>
@@ -109,47 +127,55 @@
 				</div>
 			</div>
 		</header>
-		<!-- END #gtco-header -->
+	
 
-		
-		<!-- END .gtco-client -->
-
-		<div class="gtco-services gtco-section">
+	<div class="gtco-services gtco-section">
 			<div class="gtco-container">
-				<div class="row row-pb-sm">
+				<div class="row">
 					<div class="col-md-8 col-md-offset-2 gtco-heading text-center">
-					<p>“Help others without any reason and give without the expectation of receiving anything in return.”</p>
-					<h3>Roy T. Bennett, The Light in the Heart</h3>
-
-						
+						<h2>Pengabdian Masyarakat</h2>
+						<p>HMTC setiap tahun nya rutin mengadakan kegiatan pengabdian masyarakat yang tujuan utama nya adalah membantu masyarakat yang membutuhkan</p>
 					</div>
 				</div>
-				<div class="row row-pb-md">
-					<div class="col-md-4 col-sm-4 service-wrap">
-						<div class="service">
-							<h3><i class="ti-pie-chart"></i> Pengmas</h3>
-							<p>HMTC melalui departemen hubungan luar, divisi pengabdian masyarakat, aktif mengadakan kegiatan pengabdian masyarakat sebagai wadah dari himpunan untuk berinteraksi dan bersosialisasi dengan masyarakat sekitar.</p>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-4 service-wrap">
-						<div class="service animate-change">
-							<h3><i class="ti-ruler-pencil"></i> Buat akun</h3>
-							<p>Wahai anggota himpunan, tertarik ikut serta dalam kegiatan pengmas dan donasi HMTC? ayo daftar akun nya sekarang!.</p>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-4 service-wrap">
-						<div class="service">
-							<h3><i class="ti-settings"></i> Donasi</h3>
-							<p>Disamping kegiatan pengmas, HMTC juga aktif menyalurkan donasi dari tangan-tangan dermawan para anggota himpunan untuk disalurkan kepada yang membutuhkan</p>
-						</div>
-					</div>
+				<div class="row">
 
-					<div class="clearfix visible-md-block visible-sm-block"></div>
+					<div class="col-md-12">
+						<div class="owl-carousel owl-carousel-carousel">
+							<div class="item">
+								<div class="gtco-staff">
+									<img src="images/staff_1.jpg" alt="" class="img-responsive">
+									<h2>Mengajar anak-anak di Gang Dolly</h2>
+									<p class="role">Dolly, Surabaya</p>
+									<p>Banyak sekali, anak-anak kecil lucu yang haus akan pengetahuan disini. yuk daftar dan segera berinteraksi terhadap mereka!</p>
+									
+								</div>
+							</div>
+							<div class="item">
+								<div class="gtco-staff">
+									<img src="images/staff_2.jpg" alt="" class="img-responsive">
+									<h2>Kampung Binaan FTIK</h2>
+									<p class="role">Surabaya</p>
+									<p>Jadilah bagian dalam pencerdasan yang diinsiasi oleh FTIF. Kalo bukan sekarang ya kapan lagi !</p>
+									
+								</div>
+							</div>
+							<div class="item">
+								<div class="gtco-staff">
+									<img src="images/staff_3.jpg" alt="" class="img-responsive">
+									<h2>Korban Lumpur Lapindo</h2>
+									<p class="role">Porong, Sidoarjo</p>
+									<p>Hidup mereka berubah selama-lamanya ketika lumpur panas menyerang rumah mereka.</p>
+									
+								</div>
+							</div>
 
+							
+						</div>
+					</div>
+					
 				</div>
 			</div>
 		</div>
-		<!-- END .gtco-services -->
 
 		
 		

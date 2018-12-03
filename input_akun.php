@@ -8,7 +8,7 @@ $sql = " SELECT * FROM users WHERE username_users = '$username_users' AND passwo
 $result = $con->query($sql);
 
 if ($result->num_rows==0)
- header("Location: login.html?flag=wrongpassword");
+ header("Location: login.php?flag=wrongpassword");
 
  if ($username_users =='admin' AND $password_users=='admin') {
     session_start();

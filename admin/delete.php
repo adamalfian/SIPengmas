@@ -1,15 +1,15 @@
 <?php
-include('connect.php');
-if (!isset($_GET['id_users']))
+include('../functions.php');
+if (!isset($_GET['id']))
 {
     echo 'No ID was given...';
     exit;
 }
 
-$id_users = $_GET['id_users'];
+$id_users = $_GET['id'];
 
-$sql = "DELETE FROM users WHERE id_users = '$id_users'";
-$result = mysqli_query($con, $sql);
+$sql = "DELETE FROM users WHERE id = '$id'";
+$result = mysqli_query($db, $sql);
 
 if($result){
     header('Location: verifikasi_user.php');

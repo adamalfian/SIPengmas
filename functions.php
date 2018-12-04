@@ -15,7 +15,8 @@ if (isset($_POST['register_btn'])) {
 }
 
 // REGISTER USER
-function register(){
+function register()
+{
 	// call these variables with the global keyword to make them available in function
 	global $db, $errors, $username, $email;
 
@@ -55,32 +56,25 @@ function register(){
 			$query = "INSERT INTO users (username, email, user_type, password, nama, telepon, jk, alamat, angkatan) 
 					  VALUES('$username', '$email', '$user_type', '$password', '$nama' ,'$telepon', '$jk' , '$alamat', '$angkatan')";
 			mysqli_query($db, $query);
-			$_SESSION['success']  = "New user successfully created!!";
 			header('location: login.php');
 		}else{
 			$query = "INSERT INTO users (username, email, user_type, password, nama, telepon, jk, alamat, angkatan) 
 					  VALUES('$username', '$email', 'user', '$password', '$nama' ,'$telepon', '$jk' , '$alamat', '$angkatan')";
 			mysqli_query($db, $query);
-
-			// get id of the created user
-			$logged_in_user_id = mysqli_insert_id($db);
-
-			$_SESSION['user'] = getUserById($logged_in_user_id); // put logged in user in session
-			$_SESSION['success']  = "You are now logged in";
 			header('location: login.php');				
 		}
 	}
 }
 
 // return user array from their id
-function getUserById($id){
-	global $db;
-	$query = "SELECT * FROM users WHERE id=" . $id;
-	$result = mysqli_query($db, $query);
+// function getUserById($id){
+// 	global $db;
+// 	$query = "SELECT * FROM users WHERE id=" . $id;
+// 	$result = mysqli_query($db, $query);
 
-	$user = mysqli_fetch_assoc($result);
-	return $user;
-}
+// 	$user = mysqli_fetch_assoc($result);
+// 	return $user;
+// }
 
 // escape string
 function e($val){
@@ -144,18 +138,22 @@ function login(){
 			if ($logged_in_user['user_type'] == 'admin') {
 
 				$_SESSION['user'] = $logged_in_user;
-				$_SESSION['username'] = $username;
-				$_SESSION['success']  = "You are now logged in";
 				header('location: halo_admin.php');		  
-			}else{
-				$_SESSION['user'] = $logged_in_user;
-				$_SESSION['username'] = $username;
-				$_SESSION['success']  = "You are now logged in";
-
-				header('location: index.php');
+			}
+			else
+			{
+				if($logged_in_user['user_status'] == 'konfirmed')
+				{
+					$_SESSION['user'] = $logged_in_user;
+					header('location: index.php');
+				}
+				else{
+					array_push($errors, "Akun belun terverifikasi. Mohon menunggu  atau hubungi Admin :085786869894");
+				}
+				
 			}
 		}else {
-			array_push($errors, "Wrong username/password combination");
+			array_push($errors, "salah username/password");
 		}
 	}
 }
@@ -175,8 +173,63 @@ function isAdmin()
 	session_destroy();
 	unset($_SESSION['user']);
 	header("location: index.php");}
+
+// function verifakun($id)
+// {
+// 	$id = $_GET['$id'];
+
+// 	$sql = "DELETE FROM users WHERE id = $id";
+// 	$result = mysqli_query($db, $sql);
+
+// 	if($result){
+// 	    header('Location: verifikasi_user.php');
+
+// 	  } else{
+
+// 	     echo "gagal";
+// 	  }
+// 		mysql_close();
+// }
 // if (isset($_POST['logout_btn'])) {
 // 	session_destroy();
 // 	unset($_SESSION['user']);
 // 	header("location: index.php");}
 
+
+if (isset($_POST['ubah_profil'])) {
+	ubah_profil();
+}
+
+// REGISTER USER
+function ubah_profil(){
+	// call these variables with the global keyword to make them available in function
+	global $db, $errors, $username, $email;
+
+	// receive all input values from the form. Call the e() function
+    // defined below to escape form values
+	$nama    	 =  e($_POST['nama']);
+	$kelamin     =  e($_POST['kelamin']);
+	$telp  		 =  e($_POST['telp']);
+	$alamat  	 =  e($_POST['alamat']);
+	$angkatan	 =  e($_POST['angkatan']);
+	$id 		 =  $_SESSION['user']['id'];
+
+
+	// form validation: ensure that the form is correctly filled
+	if (empty($nama)) { 
+		array_push($errors, "Nama Dibutuhkan"); 
+	}
+	if (empty($kelamin)) { 
+		array_push($errors, "Jenis kelamin Dibutuhkan"); 
+	}
+	if (empty($telp)) { 
+		array_push($errors, "Telefon Dibutuhkan"); 
+	}
+
+	// register user if there are no errors in the form
+	if (count($errors) == 0) {
+		$query = "UPDATE users set nama='$nama', jk='$kelamin' ,telepon='$telp' , alamat='$alamat' , angkatan='$angkatan' where id='$id' ";
+			mysqli_query($db, $query);
+			header('location: profil.php');
+		}
+	}

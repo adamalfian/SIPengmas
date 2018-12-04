@@ -1,9 +1,5 @@
 <?php 
 	include('functions.php');
-	if (!isLoggedIn()) {
-	$_SESSION['msg'] = "You must log in first";
-	header('location: login.php');
-}
 ?>
 <!DOCTYPE HTML>
 <!--
@@ -76,7 +72,7 @@
 					</div>
 					<div class="col-xs-10 text-right menu-1">
 						<ul>
-							<li class="active"><a href="halo.html">Home</a></li>
+							<li class="active"><a href="index.php">Home</a></li>
 							<li><a href="about.php">Informasi</a></li>
 							<li class="has-dropdown">
 								<a href="#">Kegiatan</a>
@@ -89,21 +85,22 @@
 								echo "<li><a href='login.php'>Login</a></li>";
 							else
 								echo "<li class='has-dropdown'>
-									<a href=>". $_SESSION["username"] ."</a>
+									<a href=>". $_SESSION["user"]["username"] ."</a>
 									<ul class='dropdown'>
-										<li><a href='daftar_kegiatan.php'>Ikut kegiatan Pengmas</a></li>
-										<li><a href='kegiatan_donasi.php'>Ikut kegiatan Donasi</a></li>
+										<li><a href='daftar_kegiatan.php''>Ikut kegiatan Pengmas</a></li>
+										<li><a href='kegiatan_pengmas.php'>Kegiatan Pengmas Saya</a></li>
 										<li><a href='upload_Pembayaran.php'>Bayar kegiatan donasi</a></li>
 										<li><a href='profil.php'>Melihat Profil</a></li>
 										<li><a href='sertif.php'>Sertifikat</a></li>
 										<li><a href='index.php?logout=1'>logout</a></li>
 									</ul>
 								</li>"								
-								// echo "<li><a href='index.php?logout=1'>". $_SESSION["username"] ."</a></li>";
+								// echo "<li><a href='index.php?logout=1'>". $_SESSION["user"]["username"] ."</a></li>";
 								// echo "<li><form method='POST'>
 								// 		<input type='submit' name='logout_btn' value='Logout'>
 								// 	  </form></li>";
 							?>
+							
 						</ul>
 					</div>
 				</div>
@@ -111,85 +108,89 @@
 			</div>
 		</nav>
 
-		
-		<!-- END #gtco-header -->
-
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-
-<div id="colorlib-contact">
-		<div class="container">
-			<div class="row">
-				
-				<div class="col-md-10 col-md-offset-1 animate-box">
-					<h1 style="text-align: center;">Form Daftar Kegiatan Donasi</h1>
-					<form action="insert_donasi.php" method="post">
-					
-						<div class="form-group row">
-                                            <label class="col-lg-6" for="val-skill">Donasi<span class="text-danger">*</span></label>
-                                            <div class="col-lg-12">
-                                                <select class="form-control" id="val-skill" name="ikut_kegiatan">
-                                                    <option value="">
-                                                    	Pilih Salah Satu Kegiatan Donasi !
-                                                    </option>
-                                                    <option value="Lapindo">
-                                                    	Korban Lumpur Lapindo
-                                                    </option>
-                                                    <option value="Bom">Santunan Keluarga Korban Bom Teroris</option>
-                                                    <option value="Sedekah">Menolong Yang Tidak Mampu</option>
-                                                </select>
-                                            </div>
-                                        </div>
-						<div class="row form-group">
-							<div class="col-md-6">
-								<label for="Nama">Nama</label>
-								<input type="text" id="Nama" class="form-control mb" placeholder="Nama" name="nama_peserta">
-							</div>
-
-							<div class="col-md-6">
-								<label for="kelamin">Jenis Kelamin</label>
-								<select class="form-control" id="val-skill" name="jk_peserta">
-                                                    <option value="L">Laki-Laki</option>
-                                                    <option value="P">Perempuan</option>
-                                                </select>
+		<header id="gtco-header" class="gtco-cover" role="banner">
+			<div class="gtco-container">
+				<div class="row">
+					<div class="col-md-12 col-md-offset-0 text-left">
+						<div class="display-t">
+							<div class="display-tc">
+								<div class="row">
+									<div class="col-md-5 text-center header-img">
+										<img src="images/logo-hmtc.jpg" alt="Free HTML5 Website Template by GetTemplates.co">
+									</div>
+									<div class="col-md-7 copy">
+										<h1>Sistem Informasi Kegiatan Pengabdian Masyarakat dan Donasi</h1>
+										<p>Departemen Hubungan Luar, Himpunan Mahasiswa Teknik Computer-Informatika (HMTC)</p>
+										
+									</div>
+								</div>
 							</div>
 						</div>
-
-						<div class="row form-group">
-							<div class="col-md-12">
-								<label for="Telp">No. Telepon</label>
-								<input type="text" id="Telp" class="form-control" placeholder="Nomor Telepon Aktif" name="nohp_peserta">
-							</div>
-						</div>
-
-						<div class="row form-group">
-							<div class="col-md-12">
-								<label for="Alamat">Alamat</label>
-								<input type="text" id="Alamat" class="form-control" placeholder="Alamat Saat Ini" name="alamat_peserta">
-							</div>
-						</div>
-
-						<div class="row form-group">
-							<div class="col-md-12">
-								<label for="Alamat">Angkatan</label>
-								<input type="text" id="Angkatan" class="form-control" placeholder="Angkatan Masuk" name="angkatan_peserta">
-							</div>
-						</div>
-
-						<div class="form-group text-center">
-							<input type="submit" value="Submit" class="btn btn-primary">
-						</div>
-
-					</form>		
+					</div>
 				</div>
 			</div>
-		</div>
-	</div>		
+		</header>
+		<!-- END #gtco-header -->
+
+		
 		<!-- END .gtco-client -->
+
+		<div class="gtco-services gtco-section">
+			<div class="gtco-container">
+				<div class="table-responsive m-t-40">
+                                    <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th>Nama Kegiatan</th>
+                                                <th>Nama Peserta</th>
+                                                <th>Nomor Telepon</th>
+                                                <th>Alamat</th>
+                                                <th>Angkatan</th>
+                                                <th>Waktu Pelaksanaan</th>
+                                                <th>Status</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            //include('functions.php');
+                                            $sql = mysqli_query($db,"SELECT * FROM Kegiatan where id = ". $_SESSION["user"]["id"] ."");
+                                            if(mysqli_num_rows($sql) > 0){
+                                                $no = 1;
+                                                while($data = mysqli_fetch_assoc($sql)){
+                                                    echo '
+                                                    <tr>
+                                                        <td >'.$data['ikut_kegiatan'].'</td>
+                                                        <td >'.$data['nama_peserta'].'</td>
+                                                        <td >'.$data['nohp_peserta'].'</td>
+                                                        <td >'.$data['alamat_peserta'].'</td>
+                                                        <td >'.$data['angkatan_peserta'].'</td>
+                                                        <td >'.$data['tanggal'].'</td>
+                                                        <td >'.$data['status'].'</td>
+                                                        
+
+                                                    </tr>
+                                                    ';
+                                                    $no++;
+                                                }
+                                            }else{
+                                                echo '
+                                                <tr bgcolor="#fff">
+                                                    <td align="center" colspan="7" align="center">Tidak ada data!</td>
+                                                </tr>
+                                                ';
+                                            }
+                                            ?>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+			</div>
+		</div>
+		<!-- END .gtco-services -->
+
+		
+		
 
 		<footer id="gtco-footer" class="gtco-section" role="contentinfo">
 			<div class="gtco-container">
@@ -236,6 +237,8 @@
 			</div>
 			
 		</footer>
+
+	</div>
 
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>

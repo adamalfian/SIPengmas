@@ -2,7 +2,6 @@
 include('../functions.php');
 
 if (!isAdmin()) {
-    $_SESSION['msg'] = "You must log in first";
     header('location: login.php');
 }
 ?>
@@ -36,7 +35,7 @@ if (!isAdmin()) {
     <!-- Preloader - style you can find in spinners.css -->
     <div class="preloader">
         <svg class="circular" viewBox="25 25 50 50">
-			<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
     </div>
     <!-- Main wrapper  -->
     <div id="main-wrapper">
@@ -67,7 +66,7 @@ if (!isAdmin()) {
                         <!-- End Messages -->
                         <!-- Profile -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo "Admin ". $_SESSION["username"] ." "?></a>
+                            <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo "Admin ". $_SESSION["user"]["username"] ." "?></a>
                             <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                 <ul class="dropdown-user">
                                     <li><a href="#"><i class="ti-user"></i> Profile</a></li>
@@ -92,15 +91,11 @@ if (!isAdmin()) {
                        
                         
                         <li class="nav-label">Features</li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-wpforms"></i><span class="hide-menu">Forms</span></a>
-                            <ul aria-expanded="false" class="collapse">
-                                <li><a href="tambah_saldo.html">Tambah Saldo</a></li>
-                            </ul>
-                        </li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Verifikasi</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="verifikasi_pembayaran.php">Verifikasi Pembayaran</a></li>
+                                <!-- <li><a href="verifikasi_pembayaran.php">Verifikasi Pembayaran</a></li> -->
                                 <li><a href="verifikasi_user.php">Verifikasi Akun</a></li>
+                                <li><a href="verifikasi_kegiatan.php">Verifikasi Pengmas</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -142,6 +137,7 @@ if (!isAdmin()) {
                                                 <th>Nomor Telepon</th>
                                                 <th>Alamat</th>
                                                 <th>Angkatan</th>
+                                                <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -152,13 +148,14 @@ if (!isAdmin()) {
                                                 <th>Nomor Telepon</th>
                                                 <th>Alamat</th>
                                                 <th>Angkatan</th>
+                                                <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
                                         </tfoot>
                                         <tbody>
                                             <?php
-                                            include('connect.php');
-                                            $sql = mysqli_query($con,"SELECT * FROM users");
+                                            //include('connect.php');
+                                            $sql = mysqli_query($db,"SELECT * FROM users where user_type='user' ");
                                             if(mysqli_num_rows($sql) > 0){
                                                 $no = 1;
                                                 while($data = mysqli_fetch_assoc($sql)){
@@ -169,8 +166,8 @@ if (!isAdmin()) {
                                                         <td >'.$data['telepon'].'</td>
                                                         <td >'.$data['alamat'].'</td>
                                                         <td >'.$data['angkatan'].'</td>
-                                                        <td ><a href="delete.php?id='.$data['id'].'">Delete</a></td></tr>
-
+                                                        <td >'.$data['user_status'].'</td>
+                                                        <td ><a href="konfir.php?id='.$data['id'].'">Verifikasi</a> || <a href="delete.php?id='.$data['id'].'">Hapus</a></td>
                                                     </tr>
                                                     ';
                                                     $no++;
@@ -178,7 +175,7 @@ if (!isAdmin()) {
                                             }else{
                                                 echo '
                                                 <tr bgcolor="#fff">
-                                                    <td align="center" colspan="4" align="center">Tidak ada data!</td>
+                                                    <td align="center" colspan="6" align="center">Tidak ada data!</td>
                                                 </tr>
                                                 ';
                                             }

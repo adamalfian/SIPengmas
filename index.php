@@ -85,17 +85,17 @@
 								echo "<li><a href='login.php'>Login</a></li>";
 							else
 								echo "<li class='has-dropdown'>
-									<a href=>". $_SESSION["username"] ."</a>
+									<a href=>". $_SESSION["user"]["username"] ."</a>
 									<ul class='dropdown'>
 										<li><a href='daftar_kegiatan.php''>Ikut kegiatan Pengmas</a></li>
-										<li><a href='kegiatan_donasi.php'>Ikut kegiatan Donasi</a></li>
+										<li><a href='kegiatan_pengmas.php'>Kegiatan Pengmas Saya</a></li>
 										<li><a href='upload_Pembayaran.php'>Bayar kegiatan donasi</a></li>
 										<li><a href='profil.php'>Melihat Profil</a></li>
 										<li><a href='sertif.php'>Sertifikat</a></li>
 										<li><a href='index.php?logout=1'>logout</a></li>
 									</ul>
 								</li>"								
-								// echo "<li><a href='index.php?logout=1'>". $_SESSION["username"] ."</a></li>";
+								// echo "<li><a href='index.php?logout=1'>". $_SESSION["user"]["username"] ."</a></li>";
 								// echo "<li><form method='POST'>
 								// 		<input type='submit' name='logout_btn' value='Logout'>
 								// 	  </form></li>";

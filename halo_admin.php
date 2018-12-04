@@ -2,7 +2,6 @@
 include('functions.php');
 
 if (!isAdmin()) {
-	$_SESSION['msg'] = "You must log in first";
 	header('location: login.php');
 }
 ?>
@@ -78,11 +77,12 @@ if (!isAdmin()) {
 					<div class="col-xs-10 text-right menu-1">
 						<ul>							
 							<li class="has-dropdown">
-								<?php echo "<a href=>Admin ". $_SESSION["username"] ."</a>" ?>
+								<?php echo "<a href=>Admin ". $_SESSION["user"]["username"] ."</a>" ?>
 								<ul class="dropdown">
-									<li><a href="admin/verifikasi_pembayaran.php">Verifikasi Bukti Pembayaran</a></li>
-									<li><a href="admin/tambah_saldo.html">Pengendalian Duit Virtual</a></li>
-									<li><a href="admin/verifikasi_user.php">Verifikasi Akun Baru</a></li>
+									<!-- <li><a href="admin/verifikasi_pembayaran.php">Verifikasi Bukti Pembayaran</a></li>
+									<li><a href="admin/tambah_saldo.html">Pengendalian Duit Virtual</a></li>-->
+									 <li><a href="admin/verifikasi_kegiatan.php">Verifikasi Pengmas</a></li>
+									 <li><a href="admin/verifikasi_user.php">Verifikasi Akun Baru</a></li>
 									<li><a href="index.php?logout=1">Logout</a></li>
 								</ul>
 							</li>

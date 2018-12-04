@@ -1,7 +1,6 @@
 <?php 
 	include('functions.php');
 	if (!isLoggedIn()) {
-	$_SESSION['msg'] = "You must log in first";
 	header('location: login.php');
 }
 ?>
@@ -89,17 +88,18 @@
 								echo "<li><a href='login.php'>Login</a></li>";
 							else
 								echo "<li class='has-dropdown'>
-									<a href=>". $_SESSION["username"] ."</a>
+									<a href=>". $_SESSION["user"]["username"] ."</a>
+
 									<ul class='dropdown'>
 										<li><a href='daftar_kegiatan.php'>Ikut kegiatan Pengmas</a></li>
-										<li><a href='kegiatan_donasi.php'>Ikut kegiatan Donasi</a></li>
+										<li><a href='kegiatan_pengmas.php'>Kegiatan Pengmas Saya</a></li>
 										<li><a href='upload_Pembayaran.php'>Bayar kegiatan donasi</a></li>
 										<li><a href='profil.php'>Melihat Profil</a></li>
 										<li><a href='sertif.php'>Sertifikat</a></li>
 										<li><a href='index.php?logout=1'>logout</a></li>
 									</ul>
-								</li>"								
-								// echo "<li><a href='index.php?logout=1'>". $_SESSION["username"] ."</a></li>";
+								</li>";							
+								// echo "<li><a href='index.php?logout=1'>". $_SESSION["user"]["username"] ."</a></li>";
 								// echo "<li><form method='POST'>
 								// 		<input type='submit' name='logout_btn' value='Logout'>
 								// 	  </form></li>";
@@ -128,6 +128,11 @@
 				
 				<div class="col-md-10 col-md-offset-1 animate-box">
 					<form action="insert_peserta.php" method="post">
+						<?php
+                            //include('connect.php');
+                            $sql = mysqli_query($db,"SELECT * FROM users where id=". $_SESSION["user"]["id"] ." ");
+                            $data = mysqli_fetch_assoc($sql);
+                                    echo '
 						<div class="form-group row">
                                             <label class="col-lg-6" for="val-skill">Lokasi<span class="text-danger">*</span></label>
                                             <div class="col-lg-12">
@@ -146,18 +151,22 @@
 						<div class="row form-group">
 							<div class="col-md-6">
 								<label for="Nama">Nama</label>
-								<input type="text" id="Nama" class="form-control mb" placeholder="Nama" name="nama_peserta">
+								<input type="text" id="Nama" class="form-control mb" placeholder="Nama" name="nama_peserta" value="'.$data['nama'].'" readonly="">
 							</div>
 
 							<div class="col-md-6">
 								<label for="kelamin">Jenis Kelamin</label>
-								<select class="form-control" id="val-skill" name="jk_peserta">
-                                                    <option value="L">Laki-Laki</option>
-                                                    <option value="P">Perempuan</option>
-                                                </select>
+								<input type="text" id="kelamin" class="form-control mb" placeholder="Jenis Kelamin" name="jk_peserta" value="'.$data['jk'].'" readonly="">
 							</div>
 						</div>
 
+						<div class="row form-group">
+							<div class="col-md-12">
+								<label for="Alamat">Angkatan</label>
+								<input type="text" id="Angkatan" class="form-control" placeholder="Angkatan Masuk" name="angkatan_peserta" value="'.$data['angkatan'].'" readonly="">
+							</div>
+						</div>
+						';?>
 						<div class="row form-group">
 							<div class="col-md-12">
 								<label for="Telp">No. Telepon</label>
@@ -174,8 +183,8 @@
 
 						<div class="row form-group">
 							<div class="col-md-12">
-								<label for="Alamat">Angkatan</label>
-								<input type="text" id="Angkatan" class="form-control" placeholder="Angkatan Masuk" name="angkatan_peserta">
+								<label for="Telp">Tanggal pelaksanaan</label>
+								<input type="date" id="tanggal" class="form-control"  name="tanggal">
 							</div>
 						</div>
 

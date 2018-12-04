@@ -1,7 +1,6 @@
 <?php 
 	include('functions.php');
 	if (!isLoggedIn()) {
-	$_SESSION['msg'] = "You must log in first";
 	header('location: login.php');
 }
 ?>
@@ -52,6 +51,11 @@
 
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="css/style.css">
+	
+	<!-- Modal -->
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
@@ -89,17 +93,17 @@
 								echo "<li><a href='login.php'>Login</a></li>";
 							else
 								echo "<li class='has-dropdown'>
-									<a href=>". $_SESSION["username"] ."</a>
+									<a href=>". $_SESSION["user"]["username"] ."</a>
 									<ul class='dropdown'>
 										<li><a href='daftar_kegiatan.php''>Ikut kegiatan Pengmas</a></li>
-										<li><a href='kegiatan_donasi.php'>Ikut kegiatan Donasi</a></li>
+										<li><a href='kegiatan_pengmas.php'>Kegiatan Pengmas Saya</a></li>
 										<li><a href='upload_Pembayaran.php'>Bayar kegiatan donasi</a></li>
 										<li><a href='profil.php'>Melihat Profil</a></li>
 										<li><a href='sertif.php'>Sertifikat</a></li>
 										<li><a href='index.php?logout=1'>logout</a></li>
 									</ul>
 								</li>"								
-								// echo "<li><a href='index.php?logout=1'>". $_SESSION["username"] ."</a></li>";
+								// echo "<li><a href='index.php?logout=1'>". $_SESSION["user"]["username"] ."</a></li>";
 								// echo "<li><form method='POST'>
 								// 		<input type='submit' name='logout_btn' value='Logout'>
 								// 	  </form></li>";
@@ -142,43 +146,41 @@
 				
 				<div class="col-md-10 col-md-offset-1 animate-box">
 					<form action="#">
+						<?php
+                            //include('connect.php');
+                            $sql = mysqli_query($db,"SELECT * FROM users where id=". $_SESSION["user"]["id"] ." ");
+                            $data = mysqli_fetch_assoc($sql);
+                                    echo '
 						<div class="row form-group">
 							<div class="col-md-6">
 								<label for="Nama">Nama</label>
-								<input type="text" id="Nama" class="form-control mb" placeholder="Glenn Lucas" readonly="">
+								<input type="text" id="Nama" class="form-control mb" value="'.$data['nama'].'" readonly="">
 							</div>
 
 							<div class="col-md-6">
 								<label for="kelamin">Jenis Kelamin</label>
-								<input type="text" id="kelamin" class="form-control" placeholder="Laki-Laki" readonly="">
+								<input type="text" id="kelamin" class="form-control" value="'.$data['jk'].'" readonly="">
 							</div>
 						</div>
 
 						<div class="row form-group">
 							<div class="col-md-12">
 								<label for="Telp">No. Telepon</label>
-								<input type="text" id="Telp" class="form-control" placeholder="08573456789" readonly="">
+								<input type="text" id="Telp" class="form-control" value="'.$data['telepon'].'" readonly="">
 							</div>
 						</div>
 
 						<div class="row form-group">
 							<div class="col-md-12">
 								<label for="Alamat">Alamat</label>
-								<input type="text" id="Alamat" class="form-control" placeholder="Jakarta" readonly="">
+								<input type="text" id="Alamat" class="form-control" value="'.$data['alamat'].'" readonly="">
 							</div>
 						</div>
 
 						<div class="row form-group">
 							<div class="col-md-6">
 								<label for="Alamat">Angkatan</label>
-								<input type="text" id="Angkatan" class="form-control" placeholder="2015" readonly="">
-							</div>
-						</div>
-
-						<div class="row form-group">
-							<div class="col-md-6">
-								<label for="Alamat">Saldo Uang Virtual</label>
-								<input type="text" id="Angkatan" class="form-control" placeholder="0" readonly="">
+								<input type="text" id="Angkatan" class="form-control" value="'.$data['angkatan'].'" readonly="">
 							</div>
 						</div>
 						<br>
@@ -186,13 +188,10 @@
 
 
 						<div class="form-group text-center">
-							<a href="ubahprofil.php"><input type="submit" value="Ubah" class="btn btn-primary"></a>
+							<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Ubah Profil</button>
 						</div>
-
-						<div class="form-group text-center">
-							<a href="index.php"><input type="submit" value="Hapus profil" class="btn btn-primary"></a>
-						</div>
-
+						';
+						?>
 					</form>		
 				</div>
 			</div>
@@ -201,6 +200,69 @@
 		
 		<!-- END .gtco-client -->
 
+		<!-- Modal -->
+			<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog">
+
+			  <!-- Modal content-->
+			  <div class="modal-content">
+			    <div class="modal-header">
+			      <button type="button" class="close" data-dismiss="modal">&times;</button>
+			      <h4 class="modal-title">Ubah Profil</h4>
+			    </div>
+			    <div class="modal-body">
+			      <form action="profil.php" method="post">
+						<?php
+                            //include('connect.php');
+                            $sql = mysqli_query($db,"SELECT * FROM users where id=". $_SESSION["user"]["id"] ." ");
+                            $data = mysqli_fetch_assoc($sql);
+                                    echo '
+						<div class="row form-group">
+							<div class="col-md-6">
+								<label for="Nama">Nama</label>
+								<input type="text" id="nama" name="nama" class="form-control mb" value="'.$data['nama'].'">
+							</div>
+
+							<div class="col-md-6">
+								<label for="kelamin">Jenis Kelamin</label>
+								<input type="text" id="kelamin" name="kelamin" class="form-control" value="'.$data['jk'].'">
+							</div>
+						</div>
+
+						<div class="row form-group">
+							<div class="col-md-12">
+								<label for="Telp">No. Telepon</label>
+								<input type="text" id="telp" name="telp" class="form-control" value="'.$data['telepon'].'">
+							</div>
+						</div>
+
+						<div class="row form-group">
+							<div class="col-md-12">
+								<label for="Alamat">Alamat</label>
+								<input type="text" id="alamat" name="alamat" class="form-control" value="'.$data['alamat'].'">
+							</div>
+						</div>
+
+						<div class="row form-group">
+							<div class="col-md-6">
+								<label for="Alamat">Angkatan</label>
+								<input type="text" id="Angkatan" name="angkatan" class="form-control" value="'.$data['angkatan'].'">
+							</div>
+						</div>
+						<br>
+						<br>
+						';
+						?>
+					
+			    </div>
+			    <div class="modal-footer">
+			    	<button type="submit" class="btn" name="ubah_profil">Simpan Perubahan</button>
+			     	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			    </div>
+			  </div>
+			  </form>
+			</div>
+			</div>
 		
 		
 

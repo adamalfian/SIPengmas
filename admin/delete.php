@@ -6,9 +6,9 @@ if (!isset($_GET['id']))
     exit;
 }
 
-$id_users = $_GET['id'];
+$id = $_GET['id'];
 
-$sql = "DELETE FROM users WHERE id = '$id'";
+$sql = "DELETE FROM users WHERE id = $id";
 $result = mysqli_query($db, $sql);
 
 if($result){

@@ -146,8 +146,8 @@
                         </div>
                         <div class="row form-group">
                             <div class="col-md-12">
-                                <label for="Alamat">Username</label>
-                                <input type="text" class="form-control" placeholder="Username" name="username">
+                                <label for="Alamat">NRP</label>
+                                <input type="text" class="form-control" placeholder="NRP" name="username" pattern="(?=.*51)(?=.*100)[0-9]{10}" title="Masukkan NRP Anda">
                             </div>
                         </div>
                         <div class="row form-group">

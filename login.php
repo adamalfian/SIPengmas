@@ -99,8 +99,8 @@
                         <?php echo display_error(); ?>
                         <div class="row form-group">
                             <div class="col-md-12">
-                                <label for="email">Username</label>
-                                <input type="text" id="Nama" class="form-control" placeholder="Username" name="username">
+                                <label for="email">NRP</label>
+                                <input type="text" id="Nama" class="form-control" placeholder="NRP" name="username">
                             </div>
                         </div>
                             <div class="row form-group">

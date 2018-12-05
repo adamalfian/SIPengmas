@@ -141,17 +141,6 @@ if (!isAdmin()) {
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Nama</th>
-                                                <th>Jenis Kelamin</th>
-                                                <th>Nomor Telepon</th>
-                                                <th>Alamat</th>
-                                                <th>Angkatan</th>
-                                                <th>Status</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </tfoot>
                                         <tbody>
                                             <?php
                                             //include('connect.php');
@@ -167,7 +156,7 @@ if (!isAdmin()) {
                                                         <td >'.$data['alamat'].'</td>
                                                         <td >'.$data['angkatan'].'</td>
                                                         <td >'.$data['user_status'].'</td>
-                                                        <td ><a href="konfir.php?id='.$data['id'].'">Verifikasi</a> || <a href="delete.php?id='.$data['id'].'">Hapus</a></td>
+                                                        <td><button class="btn btn-success btn-xs"> <a href="konfir.php?id='.$data['id'].'" style="color: #fff; text-decoration: none;"> verifikasi</button> || <button class="btn btn-danger btn-xs"> <a href="delete.php?id='.$data['id'].'" style="color: #fff; text-decoration: none;"> Hapus</button> </td>
                                                     </tr>
                                                     ';
                                                     $no++;

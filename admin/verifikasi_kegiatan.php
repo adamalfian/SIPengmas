@@ -141,17 +141,6 @@ if (!isAdmin()) {
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Nama Kegiatan</th>
-                                                <th>Nama Peserta</th>
-                                                <th>Nomor Telepon</th>
-                                                <th>Alamat</th>
-                                                <th>Angkatan</th>
-                                                <th>Status</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </tfoot>
                                         <tbody>
                                             <?php
                                             //include('functions.php');
@@ -167,7 +156,7 @@ if (!isAdmin()) {
                                                         <td >'.$data['alamat_peserta'].'</td>
                                                         <td >'.$data['angkatan_peserta'].'</td>
                                                         <td >'.$data['status'].'</td>
-                                                        <td ><a href="kegiatankonfir.php?id='.$data['id_kegiatan'].'">Konfirmasi</a> || <a href="kegiatantolak.php?id='.$data['id_kegiatan'].'">Tolak</a></td>
+                                                        <td><button class="btn btn-success btn-xs"> <a href="kegiatankonfir.php?id='.$data['id_kegiatan'].'" style="color: #fff; text-decoration: none;"> Konfirmasi</button> || <button class="btn btn-danger btn-xs"> <a href="kegiatantolak.php?id='.$data['id_kegiatan'].'" style="color: #fff; text-decoration: none;"> Tolak</button> </td>
 
                                                     </tr>
                                                     ';

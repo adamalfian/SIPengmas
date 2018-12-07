@@ -87,9 +87,8 @@ if (!isLoggedIn()) {
 							<?php if (!isLoggedIn()) {
     echo "<li><a href='login.php'>Login</a></li>";
 } else {
-                                echo "<li class='has-dropdown'>
+                            echo "<li class='has-dropdown'>
 							<a href=>".$_SESSION['user']['username']."</a>
-
 							<ul class='dropdown'>
 							<li><a href='daftar_kegiatan.php'>Ikut kegiatan Pengmas</a></li>
 							<li><a href='kegiatan_pengmas.php'>Kegiatan Pengmas Saya</a></li>

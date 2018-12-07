@@ -46,7 +46,7 @@ if (!isAdmin()) {
                     <div class="navbar-header">
                         <a class="navbar-brand" href="index.php">
                             <!-- Logo icon -->
-                            <h4>  SI Pengmas dan Donasi HMTC</h4>
+                            <h4>SIPengmas</h4>
                         </div>
                         <!-- End Logo -->
                         <div class="navbar-collapse">
@@ -87,7 +87,7 @@ if (!isAdmin()) {
                         <nav class="sidebar-nav">
                             <ul id="sidebarnav">
                                 <li class="nav-devider"></li>
-                                <li class="nav-label">Home</li>
+        
                                 
                                 
                                 <li class="nav-label">Features</li>

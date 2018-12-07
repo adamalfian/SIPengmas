@@ -91,11 +91,24 @@ if (!isAdmin()) {
                                 
                                 
                                 <li class="nav-label">Features</li>
-                                <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Verifikasi</span></a>
+                                <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-wpforms"></i><span class="hide-menu">Pengmas</span></a>
+                                    <ul aria-expanded="false" class="collapse">
+                                        <li><a href="list_pengmas.php">Daftar Kegiatan Pengmas</a></li>
+                                    </ul>
+                                </li>
+                                <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Verifikasi Pengmas</span></a>
                                     <ul aria-expanded="false" class="collapse">
                                         <!-- <li><a href="verifikasi_pembayaran.php">Verifikasi Pembayaran</a></li> -->
-                                        <li><a href="verifikasi_user.php">Verifikasi Akun</a></li>
-                                        <li><a href="verifikasi_kegiatan.php">Verifikasi Pengmas</a></li>
+                                        <li><a href="verifikasi_kegiatan_tunda.php">Verifikasi pengmas</a></li>
+                                        <li><a href="verifikasi_kegiatan_terima.php">Pengmas diterima</a></li>
+                                        <li><a href="verifikasi_kegiatan_tolak.php">Pengmas ditolak</a></li>
+                                    </ul>
+                                </li>
+                                <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Verifikasi Akun</span></a>
+                                    <ul aria-expanded="false" class="collapse">
+                                        <!-- <li><a href="verifikasi_pembayaran.php">Verifikasi Pembayaran</a></li> -->
+                                        <li><a href="verifikasi_user_tunda.php">Verifikasi Akun</a></li>
+                                        <li><a href="verifikasi_user_terima.php">Akun terverifikasi</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -133,31 +146,30 @@ if (!isAdmin()) {
                                                     <thead>
                                                         <tr>
                                                             <th>Nama Kegiatan</th>
+                                                            <th>Tanggal</th>
                                                             <th>Nama Peserta</th>
                                                             <th>Nomor Telepon</th>
                                                             <th>Alamat</th>
                                                             <th>Angkatan</th>
                                                             <th>Status</th>
-                                                            <th>Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <?php
                                             //include('connect.php');
-                                                        $sql = mysqli_query($con, 'SELECT * FROM Kegiatan');
+                                                        $sql = mysqli_query($con, 'SELECT * FROM Kegiatan where status = "Ditolak" ');
                                                         if (mysqli_num_rows($sql) > 0) {
                                                             $no = 1;
                                                             while ($data = mysqli_fetch_assoc($sql)) {
                                                                 echo '
                                                                 <tr>
                                                                 <td >'.$data['ikut_kegiatan'].'</td>
+                                                                <td >'.$data['tanggal'].'</td>
                                                                 <td >'.$data['nama_peserta'].'</td>
                                                                 <td >'.$data['nohp_peserta'].'</td>
                                                                 <td >'.$data['alamat_peserta'].'</td>
                                                                 <td >'.$data['angkatan_peserta'].'</td>
                                                                 <td >'.$data['status'].'</td>
-                                                                <td><button class="btn btn-success btn-xs"> <a href="kegiatankonfir.php?id='.$data['id_kegiatan'].'" style="color: #fff; text-decoration: none;"> Konfirmasi</button> || <button class="btn btn-danger btn-xs"> <a href="kegiatantolak.php?id='.$data['id_kegiatan'].'" style="color: #fff; text-decoration: none;"> Tolak</button> </td>
-
                                                                 </tr>
                                                                 ';
                                                                 ++$no;

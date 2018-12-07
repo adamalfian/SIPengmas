@@ -67,14 +67,14 @@ function register()
 }
 
 // return user array from their id
-// function getUserById($id){
-// 	global $con;
-// 	$query = "SELECT * FROM users WHERE id=" . $id;
-// 	$result = mysqli_query($con, $query);
+function getUserById($id){
+	global $con;
+	$query = "SELECT * FROM users WHERE id=" . $id;
+	$result = mysqli_query($con, $query);
 
-// 	$user = mysqli_fetch_assoc($result);
-// 	return $user;
-// }
+	$user = mysqli_fetch_assoc($result);
+	return $user;
+}
 
 // escape string
 function e($val)

@@ -7,13 +7,15 @@ if (!isset($_GET['id'])) {
 }
 
 $id = $_GET['id'];
+$user = getUserById ($id);
+$hapus = "". $user['user_status'] . "";
 
 $sql = "DELETE FROM users WHERE id = $id";
 $result = mysqli_query($con, $sql);
 
-if ($result) {
-    header('Location: verifikasi_user.php');
+if ($hapus == "tunda") {
+    header('Location: verifikasi_user_tunda.php');
 } else {
-    echo 'gagal';
+    header('Location: verifikasi_user_terima.php');
 }
 mysql_close();

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 07 Des 2018 pada 14.35
+-- Generation Time: 07 Des 2018 pada 18.20
 -- Versi Server: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -72,8 +72,35 @@ CREATE TABLE `kegiatan` (
 INSERT INTO `kegiatan` (`id_kegiatan`, `id`, `ikut_kegiatan`, `nama_peserta`, `jk_peserta`, `nohp_peserta`, `alamat_peserta`, `angkatan_peserta`, `tanggal`, `status`) VALUES
 (8, 3, 'Kambin', 'dsadasd', 'L', 9090909, 'jncsdjvnskdjvnkjn', 15, '0000-00-00', 'tunda'),
 (12, 5, 'Kambin', 'bunda', 'P', 9090909, 'jember', 15, '2018-12-06', 'tunda'),
-(13, 5, 'Dolly', 'hilmi', 'L', 3434343, 'totototo', 2017, '2018-12-13', 'tunda'),
-(14, 3, 'Dolly', 'user', 'L', 3434343, 'totototo', 2015, '2018-12-06', 'tunda');
+(13, 5, 'Dolly', 'hilmi', 'L', 3434343, 'totototo', 2017, '2018-12-13', 'Disetujui'),
+(14, 3, 'Dolly', 'user', 'L', 3434343, 'totototo', 2015, '2018-12-06', 'Ditolak');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `pengmas`
+--
+
+CREATE TABLE `pengmas` (
+  `id_pengmas` int(11) NOT NULL,
+  `nama_pengmas` varchar(50) DEFAULT NULL,
+  `waktu` date DEFAULT NULL,
+  `Jam` time DEFAULT NULL,
+  `tempat` varchar(50) DEFAULT NULL,
+  `deskripsi` varchar(500) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `pengmas`
+--
+
+INSERT INTO `pengmas` (`id_pengmas`, `nama_pengmas`, `waktu`, `Jam`, `tempat`, `deskripsi`) VALUES
+(0, 'dsdsdf', '2018-12-08', '00:00:00', 'fdsfsdf', 'fsdfsdf'),
+(0, 'bunda', '2018-12-08', '02:58:00', 'dasdasd', 'asdasdasd'),
+(0, 'bunda', '2018-12-08', '02:58:00', 'dasdasd', 'asdasdasd'),
+(0, 'bunda', '2018-12-08', '02:58:00', 'dasdasd', 'asdasdasd'),
+(0, 'Azka Yasin', '2018-12-15', '23:55:00', 'jakarta', 'asdasdasd'),
+(0, 'user21', '2018-12-12', '01:59:00', 'jakarta', 'LKMM Pra Dasar IX FTIf');
 
 -- --------------------------------------------------------
 
@@ -103,15 +130,13 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `username`, `email`, `user_type`, `password`, `nama`, `telepon`, `jk`, `alamat`, `angkatan`, `user_status`, `created_at`) VALUES
 (1, 'azka', 'azka@azka.com', 'admin', 'e10adc3949ba59abbe56e057f20f883e', 'Azka Yasin', '09090909090', 'L', 'yuyuyuyuyuy', '2015', 'konfirmed', '2018-12-03 10:15:18'),
 (3, 'user', 'user@user.com', 'user', 'e10adc3949ba59abbe56e057f20f883e', 'user', '12121212', 'L', 'wowhowjow', '2015', 'konfirmed', '2018-12-04 19:45:09'),
-(5, 'user3', 'kuripanbaratt@gmail.com', 'user', 'e10adc3949ba59abbe56e057f20f883e', 'hilmi tolol', '233232', 'L', 'surabaya', '2017', 'konfirmed', '2018-12-04 19:45:52'),
 (10, 'bunda', 'bunda@bunda.com', 'user', 'e10adc3949ba59abbe56e057f20f883e', 'bunda', '12121212', 'P', 'yuyuyuyuyuy', '2011', 'tunda', '2018-12-05 01:50:09'),
 (39, 'user4', 'user4@gmail.com', 'user', '123456', 'Ichsan', '9999999', 'L', 'nginden', '2011', 'tunda', '2018-12-05 09:54:03'),
 (40, 'user5', 'user5@gmail.com', 'user', '123456', 'Adam', '9999999', 'L', 'nginden', '2011', 'tunda', '2018-12-05 09:54:03'),
 (41, '5115100038', 'admin@manifest.com', 'user', 'e10adc3949ba59abbe56e057f20f883e', 'nopal', '77777777', 'L', 'jakarta', '2015', 'tunda', '2018-12-05 22:35:20'),
 (42, '5115100039', 'hehe@hehe3.com', 'user', 'e10adc3949ba59abbe56e057f20f883e', 'noal', '5555', 'L', 'yuyuyuyuyuy', '55555', 'tunda', '2018-12-05 22:44:39'),
 (43, '5115100111', 'adib@adib.com', 'user', 'e10adc3949ba59abbe56e057f20f883e', 'Adib', '0123456789', 'L', 'keputih sby gang pasar', '2015', 'konfirmed', '2018-12-06 21:10:06'),
-(44, '5115100022', 'huda@huda.com', 'user', 'e10adc3949ba59abbe56e057f20f883e', 'Huda', '343434345567', 'L', 'mulyosari gang 5 no.7 surabaya', '2011', 'konfirmed', '2018-12-06 21:13:50'),
-(45, '5115100040', '1@gmaol.com', 'user', 'e10adc3949ba59abbe56e057f20f883e', '1', '1', 'L', '1', '1', 'tunda', '2018-12-07 00:20:39');
+(44, '5115100022', 'huda@huda.com', 'user', 'e10adc3949ba59abbe56e057f20f883e', 'Huda', '343434345567', 'L', 'mulyosari gang 5 no.7 surabaya', '2011', 'konfirmed', '2018-12-06 21:13:50');
 
 --
 -- Indexes for dumped tables

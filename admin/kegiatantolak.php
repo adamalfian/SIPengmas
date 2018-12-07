@@ -13,7 +13,7 @@ $sql = "UPDATE kegiatan SET status='Ditolak' WHERE id_kegiatan=$id";
 $result = mysqli_query($con, $sql);
 
 if ($result) {
-    header('Location: verifikasi_kegiatan.php');
+    header('Location: verifikasi_kegiatan_tunda.php');
 } else {
     echo 'gagal';
 }

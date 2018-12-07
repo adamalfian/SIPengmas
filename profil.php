@@ -1,7 +1,7 @@
 <?php 
 require 'connect.php';
 if (!isLoggedIn()) {
-    header('location: login.php');
+	header('location: login.php');
 }
 ?>
 <!DOCTYPE HTML>
@@ -90,25 +90,25 @@ if (!isLoggedIn()) {
 								</ul>
 							</li>
 							<?php if (!isLoggedIn()) {
-    echo "<li><a href='login.php'>Login</a></li>";
-} else {
-                                echo "<li class='has-dropdown'>
-							<a href=>".$_SESSION['user']['username']."</a>
-							<ul class='dropdown'>
-							<li><a href='daftar_kegiatan.php''>Ikut kegiatan Pengmas</a></li>
-							<li><a href='kegiatan_pengmas.php'>Kegiatan Pengmas Saya</a></li>
-							<li><a href='upload_Pembayaran.php'>Bayar kegiatan donasi</a></li>
-							<li><a href='profil.php'>Melihat Profil</a></li>
-							<li><a href='sertif.php'>Sertifikat</a></li>
-							<li><a href='index.php?logout=1'>logout</a></li>
-							</ul>
-							</li>";
-                            }
+								echo "<li><a href='login.php'>Login</a></li>";
+							} else {
+								echo "<li class='has-dropdown'>
+								<a href=>".$_SESSION['user']['username']."</a>
+								<ul class='dropdown'>
+								<li><a href='daftar_kegiatan.php''>Ikut kegiatan Pengmas</a></li>
+								<li><a href='kegiatan_pengmas.php'>Kegiatan Pengmas Saya</a></li>
+								<li><a href='upload_Pembayaran.php'>Bayar kegiatan donasi</a></li>
+								<li><a href='profil.php'>Melihat Profil</a></li>
+								<li><a href='sertif.php'>Sertifikat</a></li>
+								<li><a href='index.php?logout=1'>logout</a></li>
+								</ul>
+								</li>";
+							}
                                 // echo "<li><a href='index.php?logout=1'>". $_SESSION["user"]["username"] ."</a></li>";
                                 // echo "<li><form method='POST'>
                                 // 		<input type='submit' name='logout_btn' value='Logout'>
                                 // 	  </form></li>";
-                            ?>
+							?>
 						</ul>
 					</div>
 				</div>
@@ -149,9 +149,9 @@ if (!isLoggedIn()) {
 						<form action="#">
 							<?php
                             //include('connect.php');
-                            $sql = mysqli_query($con, 'SELECT * FROM users where id='.$_SESSION['user']['id'].' ');
-                            $data = mysqli_fetch_assoc($sql);
-                            echo '
+							$sql = mysqli_query($con, 'SELECT * FROM users where id='.$_SESSION['user']['id'].' ');
+							$data = mysqli_fetch_assoc($sql);
+							echo '
 							<div class="row form-group">
 							<div class="col-md-6">
 							<label for="Nama">Nama</label>
@@ -192,7 +192,7 @@ if (!isLoggedIn()) {
 							<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Ubah Profil</button>
 							</div>
 							';
-                            ?>
+							?>
 						</form>		
 					</div>
 				</div>
@@ -215,9 +215,9 @@ if (!isLoggedIn()) {
 						<form action="profil.php" method="post">
 							<?php
                             //include('connect.php');
-                            $sql = mysqli_query($con, 'SELECT * FROM users where id='.$_SESSION['user']['id'].' ');
-                            $data = mysqli_fetch_assoc($sql);
-                            echo '
+							$sql = mysqli_query($con, 'SELECT * FROM users where id='.$_SESSION['user']['id'].' ');
+							$data = mysqli_fetch_assoc($sql);
+							echo '
 							<div class="row form-group">
 							<div class="col-md-6">
 							<label for="Nama">Nama</label>
@@ -253,7 +253,7 @@ if (!isLoggedIn()) {
 							<br>
 							<br>
 							';
-                            ?>
+							?>
 							
 						</div>
 						<div class="modal-footer">
@@ -315,9 +315,6 @@ if (!isLoggedIn()) {
 
 	</div>
 
-	<div class="gototop js-top">
-		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
-	</div>
 	
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>

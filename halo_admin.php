@@ -80,7 +80,7 @@ if (!isAdmin()) {
 								<ul class="dropdown">
 									<!-- <li><a href="admin/verifikasi_pembayaran.php">Verifikasi Bukti Pembayaran</a></li>
 										<li><a href="admin/tambah_saldo.html">Pengendalian Duit Virtual</a></li>-->
-										<li><a href="admin/verifikasi_kegiatan.php">Verifikasi Pengmas</a></li>
+										<li><a href="admin/verifikasi_kegiatan_tunda.php">Verifikasi Pengmas</a></li>
 										<li><a href="admin/verifikasi_user.php">Verifikasi Akun Baru</a></li>
 										<li><a href="index.php?logout=1">Logout</a></li>
 									</ul>

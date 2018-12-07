@@ -83,25 +83,25 @@ require 'connect.php';
 							</li>
 							
 							<?php if (!isLoggedIn()) {
-    echo "<li><a href='login.php'>Login</a></li>";
-} else {
-                                echo "<li class='has-dropdown'>
-							<a href=>".$_SESSION['user']['username']."</a>
-							<ul class='dropdown'>
-							<li><a href='daftar_kegiatan.php'>Ikut kegiatan Pengmas</a></li>
-							<li><a href='kegiatan_pengmas.php'>Kegiatan Pengmas Saya</a></li>
-							<li><a href='upload_Pembayaran.php'>Bayar kegiatan donasi</a></li>
-							<li><a href='profil.php'>Melihat Profil</a></li>
-							<li><a href='sertif.php'>Sertifikat</a></li>
-							<li><a href='index.php?logout=1'>logout</a></li>
-							</ul>
-							</li>";
-                            }
+								echo "<li><a href='login.php'>Login</a></li>";
+							} else {
+								echo "<li class='has-dropdown'>
+								<a href=>".$_SESSION['user']['username']."</a>
+								<ul class='dropdown'>
+								<li><a href='daftar_kegiatan.php'>Ikut kegiatan Pengmas</a></li>
+								<li><a href='kegiatan_pengmas.php'>Kegiatan Pengmas Saya</a></li>
+								<li><a href='upload_Pembayaran.php'>Bayar kegiatan donasi</a></li>
+								<li><a href='profil.php'>Melihat Profil</a></li>
+								<li><a href='sertif.php'>Sertifikat</a></li>
+								<li><a href='index.php?logout=1'>logout</a></li>
+								</ul>
+								</li>";
+							}
                                 // echo "<li><a href='index.php?logout=1'>". $_SESSION["user"]["username"] ."</a></li>";
                                 // echo "<li><form method='POST'>
                                 // 		<input type='submit' name='logout_btn' value='Logout'>
                                 // 	  </form></li>";
-                            ?>
+							?>
 						</ul>
 					</div>
 				</div>
@@ -145,113 +145,102 @@ require 'connect.php';
 
 					<div class="col-md-12">
 						<div class="owl-carousel owl-carousel-carousel">
-							<div class="item">
-								<div class="gtco-staff">
+							<?php
+							$sql = mysqli_query($con, "SELECT * FROM pengmas");
+							if (mysqli_num_rows($sql) > 0) {
+								$no = 1;
+								while ($data = mysqli_fetch_assoc($sql)) {
+									echo '
+									<div class="item">
+									<div class="gtco-staff">
 									<img src="images/staff_1.jpg" alt="" class="img-responsive">
-									<h2>Mengajar anak-anak di Gang Dolly</h2>
-									<p class="role">Dolly, Surabaya</p>
-									<p>Banyak sekali, anak-anak kecil lucu yang haus akan pengetahuan disini. yuk daftar dan segera berinteraksi terhadap mereka!</p>
+									<h2>'.$data['nama_pengmas'].'</h2>
+									<h4>'.$data['waktu'].' '.$data['Jam'].'</h4>
+									<p class="role">'.$data['tempat'].'</p>
+									<p>'.$data['deskripsi'].'</p>
 									
-								</div>
-							</div>
-							<div class="item">
-								<div class="gtco-staff">
-									<img src="images/staff_2.jpg" alt="" class="img-responsive">
-									<h2>Kampung Binaan FTIK</h2>
-									<p class="role">Surabaya</p>
-									<p>Jadilah bagian dalam pencerdasan yang diinsiasi oleh FTIF. Kalo bukan sekarang ya kapan lagi !</p>
-									
-								</div>
-							</div>
-							<div class="item">
-								<div class="gtco-staff">
-									<img src="images/staff_3.jpg" alt="" class="img-responsive">
-									<h2>Korban Lumpur Lapindo</h2>
-									<p class="role">Porong, Sidoarjo</p>
-									<p>Hidup mereka berubah selama-lamanya ketika lumpur panas menyerang rumah mereka.</p>
-									
+									</div>
+									</div>
+									';}}
+									?>
 								</div>
 							</div>
 
-							
 						</div>
 					</div>
-					
 				</div>
-			</div>
-		</div>
 
-		
-		
 
-		<footer id="gtco-footer" class="gtco-section" role="contentinfo">
-			<div class="gtco-container">
-				<div class="row row-pb-md">
-					<div class="col-md-8 col-md-offset-2 gtco-cta text-center">
-						<h3>Himpunan Mahasiswa Teknik Computer-Informatika (HMTC)</h3>
-						<p><a href="#" class="btn btn-white btn-outline">Contact Us</a></p>
-					</div>
-				</div>
-				<div class="row row-pb-md">
-					<div class="col-md-4 gtco-widget gtco-footer-paragraph">
-						<h3>Cube</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus placerat enim et urna sagittis, rhoncus euismod.</p>
-					</div>
-					<div class="col-md-4 gtco-footer-link">
-						<div class="row">
-							<div class="col-md-6">
-								<ul class="gtco-list-link">
-									<li><a href="#">Home</a></li>
-									<li><a href="#">Features</a></li>
-									<li><a href="#">Products</a></li>
-									<li><a href="#">Testimonial</a></li>
-									<li><a href="#">Contact</a></li>
-								</ul>
+
+
+				<footer id="gtco-footer" class="gtco-section" role="contentinfo">
+					<div class="gtco-container">
+						<div class="row row-pb-md">
+							<div class="col-md-8 col-md-offset-2 gtco-cta text-center">
+								<h3>Himpunan Mahasiswa Teknik Computer-Informatika (HMTC)</h3>
+								<p><a href="#" class="btn btn-white btn-outline">Contact Us</a></p>
 							</div>
-							<div class="col-md-6">
-								<p>
-									<a href="tel://1234567890">+1 234 4565 2342</a> <br>
-									<a href="#">info@domain.com</a>
-								</p>
+						</div>
+						<div class="row row-pb-md">
+							<div class="col-md-4 gtco-widget gtco-footer-paragraph">
+								<h3>Cube</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus placerat enim et urna sagittis, rhoncus euismod.</p>
+							</div>
+							<div class="col-md-4 gtco-footer-link">
+								<div class="row">
+									<div class="col-md-6">
+										<ul class="gtco-list-link">
+											<li><a href="#">Home</a></li>
+											<li><a href="#">Features</a></li>
+											<li><a href="#">Products</a></li>
+											<li><a href="#">Testimonial</a></li>
+											<li><a href="#">Contact</a></li>
+										</ul>
+									</div>
+									<div class="col-md-6">
+										<p>
+											<a href="tel://1234567890">+1 234 4565 2342</a> <br>
+											<a href="#">info@domain.com</a>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4 gtco-footer-subscribe">
+								<form class="form-inline">
+									<div class="form-group">
+										<label class="sr-only" for="exampleInputEmail3">Email address</label>
+										<input type="email" class="form-control" id="" placeholder="Email">
+									</div>
+									<button type="submit" class="btn btn-primary">Send</button>
+								</form>
 							</div>
 						</div>
 					</div>
-					<div class="col-md-4 gtco-footer-subscribe">
-						<form class="form-inline">
-							<div class="form-group">
-								<label class="sr-only" for="exampleInputEmail3">Email address</label>
-								<input type="email" class="form-control" id="" placeholder="Email">
-							</div>
-							<button type="submit" class="btn btn-primary">Send</button>
-						</form>
-					</div>
-				</div>
+
+				</footer>
+
 			</div>
-			
-		</footer>
 
-	</div>
+			<div class="gototop js-top">
+				<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+			</div>
 
-	<div class="gototop js-top">
-		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
-	</div>
-	
-	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
-	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
-	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
-	<!-- Carousel -->
-	<script src="js/owl.carousel.min.js"></script>
-	<!-- Magnific Popup -->
-	<script src="js/jquery.magnific-popup.min.js"></script>
-	<script src="js/magnific-popup-options.js"></script>
-	<!-- Main -->
-	<script src="js/main.js"></script>
+			<!-- jQuery -->
+			<script src="js/jquery.min.js"></script>
+			<!-- jQuery Easing -->
+			<script src="js/jquery.easing.1.3.js"></script>
+			<!-- Bootstrap -->
+			<script src="js/bootstrap.min.js"></script>
+			<!-- Waypoints -->
+			<script src="js/jquery.waypoints.min.js"></script>
+			<!-- Carousel -->
+			<script src="js/owl.carousel.min.js"></script>
+			<!-- Magnific Popup -->
+			<script src="js/jquery.magnific-popup.min.js"></script>
+			<script src="js/magnific-popup-options.js"></script>
+			<!-- Main -->
+			<script src="js/main.js"></script>
 
-</body>
-</html>
+		</body>
+		</html>
 

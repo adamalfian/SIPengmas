@@ -90,7 +90,7 @@ if (!isAdmin()) {
                         <nav class="sidebar-nav">
                             <ul id="sidebarnav">
                                 <li class="nav-devider"></li>
-                                <li class="nav-label">Home</li>
+                                
                                 
                                 
                                 <li class="nav-label">Features</li>

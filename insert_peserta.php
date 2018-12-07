@@ -19,5 +19,4 @@ $id = ''.$_SESSION['user']['id'].'';
 $sql = "INSERT INTO kegiatan (id,ikut_kegiatan,nama_peserta,jk_peserta,nohp_peserta,alamat_peserta,angkatan_peserta,tanggal) VALUES('$id','$ikut_kegiatan', '$nama_peserta', '$jk_peserta', '$nohp_peserta', '$alamat_peserta','$angkatan_peserta','$tanggal')";
 mysqli_query($con, $sql);
             header('location: kegiatan_pengmas.php'); //redirect to home page
-
-            ?> 
+            ?>

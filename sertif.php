@@ -88,7 +88,7 @@ if (!isLoggedIn()) {
                             <?php if (!isLoggedIn())
                             echo "<li><a href='login.php'>Login</a></li>";
                             else
-                                echo "<li class='has-dropdown'>
+                            echo "<li class='has-dropdown'>
                             <a href=>". $_SESSION["user"]["username"] ."</a>
                             <ul class='dropdown'>
                             <li><a href='daftar_kegiatan.php''>Ikut kegiatan Pengmas</a></li>
@@ -98,11 +98,7 @@ if (!isLoggedIn()) {
                             <li><a href='sertif.php'>Sertifikat</a></li>
                             <li><a href='index.php?logout=1'>logout</a></li>
                             </ul>
-                            </li>"                              
-                                // echo "<li><a href='index.php?logout=1'>". $_SESSION["user"]["username"] ."</a></li>";
-                                // echo "<li><form method='POST'>
-                                //      <input type='submit' name='logout_btn' value='Logout'>
-                                //    </form></li>";
+                            </li>"
                             ?>
                         </ul>
                     </div>

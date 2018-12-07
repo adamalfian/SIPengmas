@@ -44,7 +44,7 @@ if (!isAdmin()) {
                 <nav class="navbar top-navbar navbar-expand-md navbar-light">
                     <!-- Logo -->
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="index.php">
+                        <a class="navbar-brand" href="../halo_admin.php">
                             <!-- Logo icon -->
                             <h4>SIPengmas</h4>
                         </div>

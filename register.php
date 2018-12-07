@@ -1,4 +1,5 @@
-<?php include('functions.php') ?>
+<?php 
+require 'connect.php'; ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,7 +49,7 @@
     <!-- FOR IE9 below -->
     <!--[if lt IE 9]>
     <script src="js/respond.min.js"></script>
-    <![endif]-->
+<![endif]-->
 </head>
 <body>
     <div id="page">
@@ -100,26 +101,27 @@
                 </div>
             </div>
         </header>
-<div id="colorlib-contact">
-        <div class="container">
-            <div class="row">
-                
-                <div class="col-md-10 col-md-offset-1 animate-box">
-<div class="header">
-    <h2>Pendaftaran</h2>
-</div>
-<form action="register.php" method="post">
-                        <div class="row form-group">
-                            <div class="col-md-6">
-                                <label for="Nama">Nama</label>
-                                <input type="text" id="Nama" class="form-control mb" placeholder="Nama" name="nama">
-                            </div>
+        <div id="colorlib-contact">
+            <div class="container">
+                <div class="row">
+                    
+                    <div class="col-md-10 col-md-offset-1 animate-box">
+                        <div class="header">
+                            <h2>Pendaftaran</h2>
+                        </div>
+                        <form action="register.php" method="post">
+                             <?php echo display_error(); ?>
+                            <div class="row form-group">
+                                <div class="col-md-6">
+                                    <label for="Nama">Nama</label>
+                                    <input type="text" id="Nama" class="form-control mb" placeholder="Nama" name="nama">
+                                </div>
 
-                            <div class="col-md-6">
-                                <label for="kelamin">Jenis Kelamin</label>
-                                <select class="form-control" name="jk" required/>
-                                 <option value="L">Laki-Laki</option>
-                                 <option value="P">Perempuan</option>
+                                <div class="col-md-6">
+                                    <label for="kelamin">Jenis Kelamin</label>
+                                    <select class="form-control" name="jk" required/>
+                                    <option value="L">Laki-Laki</option>
+                                    <option value="P">Perempuan</option>
                                 </select>
                             </div>
                         </div>
@@ -170,80 +172,80 @@
                         </div>
 
                         <div class="form-group text-center">
-                           <button type="submit" class="btn" name="register_btn">Daftar</button>
-                        </div>
-                        <div class="form-group text-center">
-                           Sudah Mendaftar? <a href="login.php">Masuk Disini</a>
-                        </div>
-                    </form>
-                    </div>
-            </div>
-        </div>
-    </div> 
+                         <button type="submit" class="btn" name="register_btn">Daftar</button>
+                     </div>
+                     <div class="form-group text-center">
+                         Sudah Mendaftar? <a href="login.php">Masuk Disini</a>
+                     </div>
+                 </form>
+             </div>
+         </div>
+     </div>
+ </div> 
 </body>
 <footer id="gtco-footer" class="gtco-section" role="contentinfo">
-            <div class="gtco-container">
-                <div class="row row-pb-md">
-                    <div class="col-md-8 col-md-offset-2 gtco-cta text-center">
-                        <h3>Himpunan Mahasiswa Teknik Computer-Informatika (HMTC)</h3>
-                        <p><a href="#" class="btn btn-white btn-outline">Contact Us</a></p>
+    <div class="gtco-container">
+        <div class="row row-pb-md">
+            <div class="col-md-8 col-md-offset-2 gtco-cta text-center">
+                <h3>Himpunan Mahasiswa Teknik Computer-Informatika (HMTC)</h3>
+                <p><a href="#" class="btn btn-white btn-outline">Contact Us</a></p>
+            </div>
+        </div>
+        <div class="row row-pb-md">
+            <div class="col-md-4 gtco-widget gtco-footer-paragraph">
+                <h3>Cube</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus placerat enim et urna sagittis, rhoncus euismod.</p>
+            </div>
+            <div class="col-md-4 gtco-footer-link">
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="gtco-list-link">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Features</a></li>
+                            <li><a href="#">Products</a></li>
+                            <li><a href="#">Testimonial</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
                     </div>
-                </div>
-                <div class="row row-pb-md">
-                    <div class="col-md-4 gtco-widget gtco-footer-paragraph">
-                        <h3>Cube</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus placerat enim et urna sagittis, rhoncus euismod.</p>
-                    </div>
-                    <div class="col-md-4 gtco-footer-link">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <ul class="gtco-list-link">
-                                    <li><a href="#">Home</a></li>
-                                    <li><a href="#">Features</a></li>
-                                    <li><a href="#">Products</a></li>
-                                    <li><a href="#">Testimonial</a></li>
-                                    <li><a href="#">Contact</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <p>
-                                    <a href="tel://1234567890">+1 234 4565 2342</a> <br>
-                                    <a href="#">info@domain.com</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 gtco-footer-subscribe">
-                        <form class="form-inline">
-                          <div class="form-group">
-                            <label class="sr-only" for="exampleInputEmail3">Email address</label>
-                            <input type="email" class="form-control" id="" placeholder="Email">
-                          </div>
-                          <button type="submit" class="btn btn-primary">Send</button>
-                        </form>
+                    <div class="col-md-6">
+                        <p>
+                            <a href="tel://1234567890">+1 234 4565 2342</a> <br>
+                            <a href="#">info@domain.com</a>
+                        </p>
                     </div>
                 </div>
             </div>
-            
-        </footer>
-
-    <div class="gototop js-top">
-        <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+            <div class="col-md-4 gtco-footer-subscribe">
+                <form class="form-inline">
+                  <div class="form-group">
+                    <label class="sr-only" for="exampleInputEmail3">Email address</label>
+                    <input type="email" class="form-control" id="" placeholder="Email">
+                </div>
+                <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+        </div>
     </div>
-    
-    <!-- jQuery -->
-    <script src="js/jquery.min.js"></script>
-    <!-- jQuery Easing -->
-    <script src="js/jquery.easing.1.3.js"></script>
-    <!-- Bootstrap -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- Waypoints -->
-    <script src="js/jquery.waypoints.min.js"></script>
-    <!-- Carousel -->
-    <script src="js/owl.carousel.min.js"></script>
-    <!-- Magnific Popup -->
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/magnific-popup-options.js"></script>
-    <!-- Main -->
-    <script src="js/main.js"></script>
+</div>
+
+</footer>
+
+<div class="gototop js-top">
+    <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+</div>
+
+<!-- jQuery -->
+<script src="js/jquery.min.js"></script>
+<!-- jQuery Easing -->
+<script src="js/jquery.easing.1.3.js"></script>
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Waypoints -->
+<script src="js/jquery.waypoints.min.js"></script>
+<!-- Carousel -->
+<script src="js/owl.carousel.min.js"></script>
+<!-- Magnific Popup -->
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/magnific-popup-options.js"></script>
+<!-- Main -->
+<script src="js/main.js"></script>
 </html>

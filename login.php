@@ -1,4 +1,6 @@
-<?php include('functions.php') ?>
+<?php
+require 'connect.php';
+?>
 <!DOCTYPE HTML>
 <!--
     Aesthetic by gettemplates.co
@@ -6,7 +8,7 @@
     URL: http://gettemplates.co
 -->
 <html>
-    <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Cube &mdash; Free Website Template, Free HTML5 Template by gettemplates.co</title>
@@ -52,11 +54,11 @@
     <!-- FOR IE9 below -->
     <!--[if lt IE 9]>
     <script src="js/respond.min.js"></script>
-    <![endif]-->
+<![endif]-->
 
-    </head>
-    <body>
-        
+</head>
+<body>
+    
     <div class="gtco-loader"></div>
     
     <div id="page">
@@ -71,7 +73,7 @@
                     <div class="col-xs-10 text-right menu-1">
                         <ul>
                             <li class="active"><a href="index.php">Home</a></li>
-                        
+                            
                         </ul>
                     </div>
                 </div>
@@ -86,67 +88,67 @@
         <br>
         <!-- END #gtco-header -->
 
-    <div id="colorlib-contact">
-        <div class="container">
-            <div class="row animate-box">
-                <div class="col-md-6 col-md-offset-3 text-center colorlib-heading">
-                    <h2>Masuk!</h2>
+        <div id="colorlib-contact">
+            <div class="container">
+                <div class="row animate-box">
+                    <div class="col-md-6 col-md-offset-3 text-center colorlib-heading">
+                        <h2>Masuk!</h2>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <form action="login.php" method="post" class="appointment-wrap animate-box">
-                        <?php echo display_error(); ?>
-                        <div class="row form-group">
-                            <div class="col-md-12">
-                                <label for="email">NRP</label>
-                                <input type="text" id="Nama" class="form-control" placeholder="NRP" name="username">
-                            </div>
-                        </div>
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <form action="login.php" method="post" class="appointment-wrap animate-box">
+                            <?php echo display_error(); ?>
                             <div class="row form-group">
-                            <div class="col-md-12">
-                                <label for="email">Password</label>
-                                <input type="password" id="Spesialis" class="form-control" placeholder="Password" name="password">
+                                <div class="col-md-12">
+                                    <label for="email">NRP</label>
+                                    <input type="text" id="Nama" class="form-control" placeholder="NRP" name="username">
+                                </div>
                             </div>
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <label for="email">Password</label>
+                                    <input type="password" id="Spesialis" class="form-control" placeholder="Password" name="password">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn" name="login_btn">Login</button>
+                            </div>
+
+                            <h4>Belum punya akun? daftar <a href="register.php">disini</a> !<h4>
+
+                            </form>
                         </div>
-
-                        <div class="form-group">
-                            <button type="submit" class="btn" name="login_btn">Login</button>
-                        </div>
-
-                        <h4>Belum punya akun? daftar <a href="register.php">disini</a> !<h4>
-
-                    </form>
+                    </div>
                 </div>
+            </div>  
+            <!-- END .gtco-client -->
+
+
+
+            
+
+            <div class="gototop js-top">
+                <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
             </div>
-        </div>
-    </div>  
-        <!-- END .gtco-client -->
+            
+            <!-- jQuery -->
+            <script src="js/jquery.min.js"></script>
+            <!-- jQuery Easing -->
+            <script src="js/jquery.easing.1.3.js"></script>
+            <!-- Bootstrap -->
+            <script src="js/bootstrap.min.js"></script>
+            <!-- Waypoints -->
+            <script src="js/jquery.waypoints.min.js"></script>
+            <!-- Carousel -->
+            <script src="js/owl.carousel.min.js"></script>
+            <!-- Magnific Popup -->
+            <script src="js/jquery.magnific-popup.min.js"></script>
+            <script src="js/magnific-popup-options.js"></script>
+            <!-- Main -->
+            <script src="js/main.js"></script>
 
-
-
-        
-
-    <div class="gototop js-top">
-        <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
-    </div>
-    
-    <!-- jQuery -->
-    <script src="js/jquery.min.js"></script>
-    <!-- jQuery Easing -->
-    <script src="js/jquery.easing.1.3.js"></script>
-    <!-- Bootstrap -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- Waypoints -->
-    <script src="js/jquery.waypoints.min.js"></script>
-    <!-- Carousel -->
-    <script src="js/owl.carousel.min.js"></script>
-    <!-- Magnific Popup -->
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/magnific-popup-options.js"></script>
-    <!-- Main -->
-    <script src="js/main.js"></script>
-
-    </body>
-</html>
+        </body>
+        </html>
 

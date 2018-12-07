@@ -1,8 +1,8 @@
 <?php 
-include('functions.php');
+require 'connect.php';
 
 if (!isAdmin()) {
-	header('location: login.php');
+    header('location: login.php');
 }
 ?>
 <!DOCTYPE HTML>
@@ -12,7 +12,7 @@ if (!isAdmin()) {
 	URL: http://gettemplates.co
 -->
 <html>
-	<head>
+<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Cube &mdash; Free Website Template, Free HTML5 Template by gettemplates.co</title>
@@ -21,7 +21,7 @@ if (!isAdmin()) {
 	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
 	<meta name="author" content="gettemplates.co" />
 
-  	<!-- Facebook and Twitter integration -->
+	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content=""/>
 	<meta property="og:image" content=""/>
 	<meta property="og:url" content=""/>
@@ -58,11 +58,11 @@ if (!isAdmin()) {
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
-	<![endif]-->
+<![endif]-->
 
-	</head>
-	<body>
-		
+</head>
+<body>
+	
 	<div class="gtco-loader"></div>
 	
 	<div id="page">
@@ -77,113 +77,113 @@ if (!isAdmin()) {
 					<div class="col-xs-10 text-right menu-1">
 						<ul>							
 							<li class="has-dropdown">
-								<?php echo "<a href=>Admin ". $_SESSION["user"]["username"] ."</a>" ?>
+								<?php echo '<a href=>Admin '.$_SESSION['user']['username'].'</a>'; ?>
 								<ul class="dropdown">
 									<!-- <li><a href="admin/verifikasi_pembayaran.php">Verifikasi Bukti Pembayaran</a></li>
-									<li><a href="admin/tambah_saldo.html">Pengendalian Duit Virtual</a></li>-->
-									 <li><a href="admin/verifikasi_kegiatan.php">Verifikasi Pengmas</a></li>
-									 <li><a href="admin/verifikasi_user.php">Verifikasi Akun Baru</a></li>
-									<li><a href="index.php?logout=1">Logout</a></li>
-								</ul>
-							</li>
-						</ul>
+										<li><a href="admin/tambah_saldo.html">Pengendalian Duit Virtual</a></li>-->
+										<li><a href="admin/verifikasi_kegiatan.php">Verifikasi Pengmas</a></li>
+										<li><a href="admin/verifikasi_user.php">Verifikasi Akun Baru</a></li>
+										<li><a href="index.php?logout=1">Logout</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
 					</div>
+					
 				</div>
-				
-			</div>
-		</nav>
+			</nav>
 
-		<header id="gtco-header" class="gtco-cover" role="banner">
-			<div class="gtco-container">
-				<div class="row">
-					<div class="col-md-12 col-md-offset-0 text-left">
-						<div class="display-t">
-							<div class="display-tc">
-								<div class="row">
-									<div class="col-md-5 text-center header-img">
-										<img src="images/logo-hmtc.jpg" alt="Free HTML5 Website Template by GetTemplates.co">
-									</div>
-									<div class="col-md-7 copy">
-										<h1>Sistem Informasi Kegiatan Pengabdian Masyarakat dan Donasi</h1>
-										<p>Departemen Hubungan Luar, Himpunan Mahasiswa Teknik Computer-Informatika (HMTC)</p>
-										
+			<header id="gtco-header" class="gtco-cover" role="banner">
+				<div class="gtco-container">
+					<div class="row">
+						<div class="col-md-12 col-md-offset-0 text-left">
+							<div class="display-t">
+								<div class="display-tc">
+									<div class="row">
+										<div class="col-md-5 text-center header-img">
+											<img src="images/logo-hmtc.jpg" alt="Free HTML5 Website Template by GetTemplates.co">
+										</div>
+										<div class="col-md-7 copy">
+											<h1>Sistem Informasi Kegiatan Pengabdian Masyarakat dan Donasi</h1>
+											<p>Departemen Hubungan Luar, Himpunan Mahasiswa Teknik Computer-Informatika (HMTC)</p>
+											
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</header>
+			</header>
 
-		<footer id="gtco-footer" class="gtco-section" role="contentinfo">
-			<div class="gtco-container">
-				<div class="row row-pb-md">
-					<div class="col-md-8 col-md-offset-2 gtco-cta text-center">
-						<h3>Himpunan Mahasiswa Teknik Computer-Informatika (HMTC)</h3>
-						<p><a href="#" class="btn btn-white btn-outline">Contact Us</a></p>
-					</div>
-				</div>
-				<div class="row row-pb-md">
-					<div class="col-md-4 gtco-widget gtco-footer-paragraph">
-						<h3>Cube</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus placerat enim et urna sagittis, rhoncus euismod.</p>
-					</div>
-					<div class="col-md-4 gtco-footer-link">
-						<div class="row">
-							<div class="col-md-6">
-								<ul class="gtco-list-link">
-									<li><a href="#">Home</a></li>
-									<li><a href="#">Features</a></li>
-									<li><a href="#">Products</a></li>
-									<li><a href="#">Testimonial</a></li>
-									<li><a href="#">Contact</a></li>
-								</ul>
-							</div>
-							<div class="col-md-6">
-								<p>
-									<a href="tel://1234567890">+1 234 4565 2342</a> <br>
-									<a href="#">info@domain.com</a>
-								</p>
-							</div>
+			<footer id="gtco-footer" class="gtco-section" role="contentinfo">
+				<div class="gtco-container">
+					<div class="row row-pb-md">
+						<div class="col-md-8 col-md-offset-2 gtco-cta text-center">
+							<h3>Himpunan Mahasiswa Teknik Computer-Informatika (HMTC)</h3>
+							<p><a href="#" class="btn btn-white btn-outline">Contact Us</a></p>
 						</div>
 					</div>
-					<div class="col-md-4 gtco-footer-subscribe">
-						<form class="form-inline">
-						  <div class="form-group">
-						    <label class="sr-only" for="exampleInputEmail3">Email address</label>
-						    <input type="email" class="form-control" id="" placeholder="Email">
-						  </div>
-						  <button type="submit" class="btn btn-primary">Send</button>
-						</form>
+					<div class="row row-pb-md">
+						<div class="col-md-4 gtco-widget gtco-footer-paragraph">
+							<h3>Cube</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus placerat enim et urna sagittis, rhoncus euismod.</p>
+						</div>
+						<div class="col-md-4 gtco-footer-link">
+							<div class="row">
+								<div class="col-md-6">
+									<ul class="gtco-list-link">
+										<li><a href="#">Home</a></li>
+										<li><a href="#">Features</a></li>
+										<li><a href="#">Products</a></li>
+										<li><a href="#">Testimonial</a></li>
+										<li><a href="#">Contact</a></li>
+									</ul>
+								</div>
+								<div class="col-md-6">
+									<p>
+										<a href="tel://1234567890">+1 234 4565 2342</a> <br>
+										<a href="#">info@domain.com</a>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 gtco-footer-subscribe">
+							<form class="form-inline">
+								<div class="form-group">
+									<label class="sr-only" for="exampleInputEmail3">Email address</label>
+									<input type="email" class="form-control" id="" placeholder="Email">
+								</div>
+								<button type="submit" class="btn btn-primary">Send</button>
+							</form>
+						</div>
 					</div>
 				</div>
-			</div>
+				
+			</footer>
+
+		</div>
+
+		<div class="gototop js-top">
+			<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+		</div>
 		
-		</footer>
-
-	</div>
-
-	<div class="gototop js-top">
-		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
-	</div>
-	
-	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
-	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
-	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
-	<!-- Carousel -->
-	<script src="js/owl.carousel.min.js"></script>
-	<!-- Magnific Popup -->
-	<script src="js/jquery.magnific-popup.min.js"></script>
-	<script src="js/magnific-popup-options.js"></script>
-	<!-- Main -->
-	<script src="js/main.js"></script>
+		<!-- jQuery -->
+		<script src="js/jquery.min.js"></script>
+		<!-- jQuery Easing -->
+		<script src="js/jquery.easing.1.3.js"></script>
+		<!-- Bootstrap -->
+		<script src="js/bootstrap.min.js"></script>
+		<!-- Waypoints -->
+		<script src="js/jquery.waypoints.min.js"></script>
+		<!-- Carousel -->
+		<script src="js/owl.carousel.min.js"></script>
+		<!-- Magnific Popup -->
+		<script src="js/jquery.magnific-popup.min.js"></script>
+		<script src="js/magnific-popup-options.js"></script>
+		<!-- Main -->
+		<script src="js/main.js"></script>
 
 	</body>
-</html>
+	</html>
 

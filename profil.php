@@ -1,7 +1,7 @@
 <?php 
-	include('functions.php');
-	if (!isLoggedIn()) {
-	header('location: login.php');
+require 'connect.php';
+if (!isLoggedIn()) {
+    header('location: login.php');
 }
 ?>
 <!DOCTYPE HTML>
@@ -11,7 +11,7 @@
 	URL: http://gettemplates.co
 -->
 <html>
-	<head>
+<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Cube &mdash; Free Website Template, Free HTML5 Template by gettemplates.co</title>
@@ -20,7 +20,7 @@
 	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
 	<meta name="author" content="gettemplates.co" />
 
-  	<!-- Facebook and Twitter integration -->
+	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content=""/>
 	<meta property="og:image" content=""/>
 	<meta property="og:url" content=""/>
@@ -54,19 +54,19 @@
 	
 	<!-- Modal -->
 	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
-	<![endif]-->
+<![endif]-->
 
-	</head>
-	<body>
-		
+</head>
+<body>
+	
 	<div class="gtco-loader"></div>
 	
 	<div id="page">
@@ -89,25 +89,26 @@
 									<li><a href="donasi.php">Donasi</a></li>
 								</ul>
 							</li>
-							<?php if (!isLoggedIn())
-								echo "<li><a href='login.php'>Login</a></li>";
-							else
-								echo "<li class='has-dropdown'>
-									<a href=>". $_SESSION["user"]["username"] ."</a>
-									<ul class='dropdown'>
-										<li><a href='daftar_kegiatan.php''>Ikut kegiatan Pengmas</a></li>
-										<li><a href='kegiatan_pengmas.php'>Kegiatan Pengmas Saya</a></li>
-										<li><a href='upload_Pembayaran.php'>Bayar kegiatan donasi</a></li>
-										<li><a href='profil.php'>Melihat Profil</a></li>
-										<li><a href='sertif.php'>Sertifikat</a></li>
-										<li><a href='index.php?logout=1'>logout</a></li>
-									</ul>
-								</li>"								
-								// echo "<li><a href='index.php?logout=1'>". $_SESSION["user"]["username"] ."</a></li>";
-								// echo "<li><form method='POST'>
-								// 		<input type='submit' name='logout_btn' value='Logout'>
-								// 	  </form></li>";
-							?>
+							<?php if (!isLoggedIn()) {
+    echo "<li><a href='login.php'>Login</a></li>";
+} else {
+                                echo "<li class='has-dropdown'>
+							<a href=>".$_SESSION['user']['username']."</a>
+							<ul class='dropdown'>
+							<li><a href='daftar_kegiatan.php''>Ikut kegiatan Pengmas</a></li>
+							<li><a href='kegiatan_pengmas.php'>Kegiatan Pengmas Saya</a></li>
+							<li><a href='upload_Pembayaran.php'>Bayar kegiatan donasi</a></li>
+							<li><a href='profil.php'>Melihat Profil</a></li>
+							<li><a href='sertif.php'>Sertifikat</a></li>
+							<li><a href='index.php?logout=1'>logout</a></li>
+							</ul>
+							</li>";
+                            }
+                                // echo "<li><a href='index.php?logout=1'>". $_SESSION["user"]["username"] ."</a></li>";
+                                // echo "<li><form method='POST'>
+                                // 		<input type='submit' name='logout_btn' value='Logout'>
+                                // 	  </form></li>";
+                            ?>
 						</ul>
 					</div>
 				</div>
@@ -140,129 +141,129 @@
 		<!-- END #gtco-header -->
 
 
-<div id="colorlib-contact">
-		<div class="container">
-			<div class="row">
-				
-				<div class="col-md-10 col-md-offset-1 animate-box">
-					<form action="#">
-						<?php
+		<div id="colorlib-contact">
+			<div class="container">
+				<div class="row">
+					
+					<div class="col-md-10 col-md-offset-1 animate-box">
+						<form action="#">
+							<?php
                             //include('connect.php');
-                            $sql = mysqli_query($db,"SELECT * FROM users where id=". $_SESSION["user"]["id"] ." ");
+                            $sql = mysqli_query($con, 'SELECT * FROM users where id='.$_SESSION['user']['id'].' ');
                             $data = mysqli_fetch_assoc($sql);
-                                    echo '
-						<div class="row form-group">
+                            echo '
+							<div class="row form-group">
 							<div class="col-md-6">
-								<label for="Nama">Nama</label>
-								<input type="text" id="Nama" class="form-control mb" value="'.$data['nama'].'" readonly="">
+							<label for="Nama">Nama</label>
+							<input type="text" id="Nama" class="form-control mb" value="'.$data['nama'].'" readonly="">
 							</div>
 
 							<div class="col-md-6">
-								<label for="kelamin">Jenis Kelamin</label>
-								<input type="text" id="kelamin" class="form-control" value="'.$data['jk'].'" readonly="">
+							<label for="kelamin">Jenis Kelamin</label>
+							<input type="text" id="kelamin" class="form-control" value="'.$data['jk'].'" readonly="">
 							</div>
-						</div>
+							</div>
 
-						<div class="row form-group">
+							<div class="row form-group">
 							<div class="col-md-12">
-								<label for="Telp">No. Telepon</label>
-								<input type="text" id="Telp" class="form-control" value="'.$data['telepon'].'" readonly="">
+							<label for="Telp">No. Telepon</label>
+							<input type="text" id="Telp" class="form-control" value="'.$data['telepon'].'" readonly="">
 							</div>
-						</div>
+							</div>
 
-						<div class="row form-group">
+							<div class="row form-group">
 							<div class="col-md-12">
-								<label for="Alamat">Alamat</label>
-								<input type="text" id="Alamat" class="form-control" value="'.$data['alamat'].'" readonly="">
+							<label for="Alamat">Alamat</label>
+							<input type="text" id="Alamat" class="form-control" value="'.$data['alamat'].'" readonly="">
 							</div>
-						</div>
+							</div>
 
-						<div class="row form-group">
+							<div class="row form-group">
 							<div class="col-md-6">
-								<label for="Alamat">Angkatan</label>
-								<input type="text" id="Angkatan" class="form-control" value="'.$data['angkatan'].'" readonly="">
+							<label for="Alamat">Angkatan</label>
+							<input type="text" id="Angkatan" class="form-control" value="'.$data['angkatan'].'" readonly="">
 							</div>
-						</div>
-						<br>
-						<br>
+							</div>
+							<br>
+							<br>
 
 
-						<div class="form-group text-center">
+							<div class="form-group text-center">
 							<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Ubah Profil</button>
-						</div>
-						';
-						?>
-					</form>		
+							</div>
+							';
+                            ?>
+						</form>		
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 		
 		<!-- END .gtco-client -->
 
 		<!-- Modal -->
-			<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal fade" id="myModal" role="dialog">
 			<div class="modal-dialog">
 
-			  <!-- Modal content-->
-			  <div class="modal-content">
-			    <div class="modal-header">
-			      <button type="button" class="close" data-dismiss="modal">&times;</button>
-			      <h4 class="modal-title">Ubah Profil</h4>
-			    </div>
-			    <div class="modal-body">
-			      <form action="profil.php" method="post">
-						<?php
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Ubah Profil</h4>
+					</div>
+					<div class="modal-body">
+						<form action="profil.php" method="post">
+							<?php
                             //include('connect.php');
-                            $sql = mysqli_query($db,"SELECT * FROM users where id=". $_SESSION["user"]["id"] ." ");
+                            $sql = mysqli_query($con, 'SELECT * FROM users where id='.$_SESSION['user']['id'].' ');
                             $data = mysqli_fetch_assoc($sql);
-                                    echo '
-						<div class="row form-group">
+                            echo '
+							<div class="row form-group">
 							<div class="col-md-6">
-								<label for="Nama">Nama</label>
-								<input type="text" id="nama" name="nama" class="form-control mb" value="'.$data['nama'].'">
+							<label for="Nama">Nama</label>
+							<input type="text" id="nama" name="nama" class="form-control mb" value="'.$data['nama'].'">
 							</div>
 
 							<div class="col-md-6">
-								<label for="kelamin">Jenis Kelamin</label>
-								<input type="text" id="kelamin" name="kelamin" class="form-control" value="'.$data['jk'].'">
+							<label for="kelamin">Jenis Kelamin</label>
+							<input type="text" id="kelamin" name="kelamin" class="form-control" value="'.$data['jk'].'">
 							</div>
-						</div>
+							</div>
 
-						<div class="row form-group">
+							<div class="row form-group">
 							<div class="col-md-12">
-								<label for="Telp">No. Telepon</label>
-								<input type="text" id="telp" name="telp" class="form-control" value="'.$data['telepon'].'">
+							<label for="Telp">No. Telepon</label>
+							<input type="text" id="telp" name="telp" class="form-control" value="'.$data['telepon'].'">
 							</div>
-						</div>
+							</div>
 
-						<div class="row form-group">
+							<div class="row form-group">
 							<div class="col-md-12">
-								<label for="Alamat">Alamat</label>
-								<input type="text" id="alamat" name="alamat" class="form-control" value="'.$data['alamat'].'">
+							<label for="Alamat">Alamat</label>
+							<input type="text" id="alamat" name="alamat" class="form-control" value="'.$data['alamat'].'">
 							</div>
-						</div>
+							</div>
 
-						<div class="row form-group">
+							<div class="row form-group">
 							<div class="col-md-6">
-								<label for="Alamat">Angkatan</label>
-								<input type="text" id="Angkatan" name="angkatan" class="form-control" value="'.$data['angkatan'].'">
+							<label for="Alamat">Angkatan</label>
+							<input type="text" id="Angkatan" name="angkatan" class="form-control" value="'.$data['angkatan'].'">
 							</div>
+							</div>
+							<br>
+							<br>
+							';
+                            ?>
+							
 						</div>
-						<br>
-						<br>
-						';
-						?>
-					
-			    </div>
-			    <div class="modal-footer">
-			    	<button type="submit" class="btn" name="ubah_profil">Simpan Perubahan</button>
-			     	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			    </div>
-			  </div>
-			  </form>
+						<div class="modal-footer">
+							<button type="submit" class="btn" name="Ubah_profil">Simpan Perubahan</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</form>
 			</div>
-			</div>
+		</div>
 		
 		
 
@@ -300,11 +301,11 @@
 					</div>
 					<div class="col-md-4 gtco-footer-subscribe">
 						<form class="form-inline">
-						  <div class="form-group">
-						    <label class="sr-only" for="exampleInputEmail3">Email address</label>
-						    <input type="email" class="form-control" id="" placeholder="Email">
-						  </div>
-						  <button type="submit" class="btn btn-primary">Send</button>
+							<div class="form-group">
+								<label class="sr-only" for="exampleInputEmail3">Email address</label>
+								<input type="email" class="form-control" id="" placeholder="Email">
+							</div>
+							<button type="submit" class="btn btn-primary">Send</button>
 						</form>
 					</div>
 				</div>
@@ -334,6 +335,6 @@
 	<!-- Main -->
 	<script src="js/main.js"></script>
 
-	</body>
+</body>
 </html>
 

@@ -1,23 +1,21 @@
-<?php 
-	include('functions.php');
-?>
+<?php require 'connect.php'; ?>
 <!DOCTYPE HTML>
 <!--
-	Aesthetic by gettemplates.co
-	Twitter: http://twitter.com/gettemplateco
-	URL: http://gettemplates.co
+Aesthetic by gettemplates.co
+Twitter: http://twitter.com/gettemplateco
+URL: http://gettemplates.co
 -->
 <html>
-	<head>
+<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Cube &mdash; Free Website Template, Free HTML5 Template by gettemplates.co</title>
+	<title>SIPengmas</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Website Template by gettemplates.co" />
 	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
 	<meta name="author" content="gettemplates.co" />
 
-  	<!-- Facebook and Twitter integration -->
+	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content=""/>
 	<meta property="og:image" content=""/>
 	<meta property="og:url" content=""/>
@@ -54,11 +52,11 @@
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
-	<![endif]-->
+<![endif]-->
 
-	</head>
-	<body>
-		
+</head>
+<body>
+	
 	<div class="gtco-loader"></div>
 	
 	<div id="page">
@@ -206,11 +204,11 @@
 					</div>
 					<div class="col-md-4 gtco-footer-subscribe">
 						<form class="form-inline">
-						  <div class="form-group">
-						    <label class="sr-only" for="exampleInputEmail3">Email address</label>
-						    <input type="email" class="form-control" id="" placeholder="Email">
-						  </div>
-						  <button type="submit" class="btn btn-primary">Send</button>
+							<div class="form-group">
+								<label class="sr-only" for="exampleInputEmail3">Email address</label>
+								<input type="email" class="form-control" id="" placeholder="Email">
+							</div>
+							<button type="submit" class="btn btn-primary">Send</button>
 						</form>
 					</div>
 				</div>
@@ -245,6 +243,6 @@
 	<!-- Main -->
 	<script src="js/main.js"></script>
 
-	</body>
+</body>
 </html>
 

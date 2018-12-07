@@ -1,5 +1,5 @@
 <?php 
-	include('functions.php');
+require 'connect.php';
 ?>
 <!DOCTYPE HTML>
 <!--
@@ -8,7 +8,7 @@
 	URL: http://gettemplates.co
 -->
 <html>
-	<head>
+<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Cube &mdash; Free Website Template, Free HTML5 Template by gettemplates.co</title>
@@ -17,7 +17,7 @@
 	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
 	<meta name="author" content="gettemplates.co" />
 
-  	<!-- Facebook and Twitter integration -->
+	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content=""/>
 	<meta property="og:image" content=""/>
 	<meta property="og:url" content=""/>
@@ -54,11 +54,11 @@
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
-	<![endif]-->
+<![endif]-->
 
-	</head>
-	<body>
-		
+</head>
+<body>
+	
 	<div class="gtco-loader"></div>
 	
 	<div id="page">
@@ -81,25 +81,26 @@
 									<li><a href="donasi.php">Donasi</a></li>
 								</ul>
 							</li>
-							<?php if (!isLoggedIn())
-								echo "<li><a href='login.php'>Login</a></li>";
-							else
-								echo "<li class='has-dropdown'>
-									<a href=>". $_SESSION["user"]["username"] ."</a>
-									<ul class='dropdown'>
-										<li><a href='daftar_kegiatan.php''>Ikut kegiatan Pengmas</a></li>
-										<li><a href='kegiatan_pengmas.php'>Kegiatan Pengmas Saya</a></li>
-										<li><a href='upload_Pembayaran.php'>Bayar kegiatan donasi</a></li>
-										<li><a href='profil.php'>Melihat Profil</a></li>
-										<li><a href='sertif.php'>Sertifikat</a></li>
-										<li><a href='index.php?logout=1'>logout</a></li>
-									</ul>
-								</li>"								
-								// echo "<li><a href='index.php?logout=1'>". $_SESSION["user"]["username"] ."</a></li>";
-								// echo "<li><form method='POST'>
-								// 		<input type='submit' name='logout_btn' value='Logout'>
-								// 	  </form></li>";
-							?>
+							<?php if (!isLoggedIn()) {
+    echo "<li><a href='login.php'>Login</a></li>";
+} else {
+                                echo "<li class='has-dropdown'>
+							<a href=>".$_SESSION['user']['username']."</a>
+							<ul class='dropdown'>
+							<li><a href='daftar_kegiatan.php''>Ikut kegiatan Pengmas</a></li>
+							<li><a href='kegiatan_pengmas.php'>Kegiatan Pengmas Saya</a></li>
+							<li><a href='upload_Pembayaran.php'>Bayar kegiatan donasi</a></li>
+							<li><a href='profil.php'>Melihat Profil</a></li>
+							<li><a href='sertif.php'>Sertifikat</a></li>
+							<li><a href='index.php?logout=1'>logout</a></li>
+							</ul>
+							</li>";
+                            }
+                                // echo "<li><a href='index.php?logout=1'>". $_SESSION["user"]["username"] ."</a></li>";
+                                // echo "<li><form method='POST'>
+                                // 		<input type='submit' name='logout_btn' value='Logout'>
+                                // 	  </form></li>";
+                            ?>
 							
 						</ul>
 					</div>
@@ -138,53 +139,53 @@
 		<div class="gtco-services gtco-section">
 			<div class="gtco-container">
 				<div class="table-responsive m-t-40">
-                                    <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
-                                        <thead>
-                                            <tr>
-                                                <th>Nama Kegiatan</th>
-                                                <th>Nama Peserta</th>
-                                                <th>Nomor Telepon</th>
-                                                <th>Alamat</th>
-                                                <th>Angkatan</th>
-                                                <th>Waktu Pelaksanaan</th>
-                                                <th>Status</th>
-                                                
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-                                            //include('functions.php');
-                                            $sql = mysqli_query($db,"SELECT * FROM Kegiatan where id = ". $_SESSION["user"]["id"] ."");
-                                            if(mysqli_num_rows($sql) > 0){
-                                                $no = 1;
-                                                while($data = mysqli_fetch_assoc($sql)){
-                                                    echo '
-                                                    <tr>
-                                                        <td >'.$data['ikut_kegiatan'].'</td>
-                                                        <td >'.$data['nama_peserta'].'</td>
-                                                        <td >'.$data['nohp_peserta'].'</td>
-                                                        <td >'.$data['alamat_peserta'].'</td>
-                                                        <td >'.$data['angkatan_peserta'].'</td>
-                                                        <td >'.$data['tanggal'].'</td>
-                                                        <td >'.$data['status'].'</td>
-                                                        
+					<table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+						<thead>
+							<tr>
+								<th>Nama Kegiatan</th>
+								<th>Nama Peserta</th>
+								<th>Nomor Telepon</th>
+								<th>Alamat</th>
+								<th>Angkatan</th>
+								<th>Waktu Pelaksanaan</th>
+								<th>Status</th>
+								
+							</tr>
+						</thead>
+						<tbody>
+							<?php
+                                            //include('connect.php');
+                            $sql = mysqli_query($con, 'SELECT * FROM Kegiatan where id = '.$_SESSION['user']['id'].'');
+                            if (mysqli_num_rows($sql) > 0) {
+                                $no = 1;
+                                while ($data = mysqli_fetch_assoc($sql)) {
+                                    echo '
+									<tr>
+									<td >'.$data['ikut_kegiatan'].'</td>
+									<td >'.$data['nama_peserta'].'</td>
+									<td >'.$data['nohp_peserta'].'</td>
+									<td >'.$data['alamat_peserta'].'</td>
+									<td >'.$data['angkatan_peserta'].'</td>
+									<td >'.$data['tanggal'].'</td>
+									<td >'.$data['status'].'</td>
+									
 
-                                                    </tr>
-                                                    ';
-                                                    $no++;
-                                                }
-                                            }else{
-                                                echo '
-                                                <tr bgcolor="#fff">
-                                                    <td align="center" colspan="7" align="center">Tidak ada data!</td>
-                                                </tr>
-                                                ';
-                                            }
-                                            ?>
+									</tr>
+									';
+                                    ++$no;
+                                }
+                            } else {
+                                echo '
+								<tr bgcolor="#fff">
+								<td align="center" colspan="7" align="center">Tidak ada data!</td>
+								</tr>
+								';
+                            }
+                            ?>
 
-                                        </tbody>
-                                    </table>
-                                </div>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 		<!-- END .gtco-services -->
@@ -226,11 +227,11 @@
 					</div>
 					<div class="col-md-4 gtco-footer-subscribe">
 						<form class="form-inline">
-						  <div class="form-group">
-						    <label class="sr-only" for="exampleInputEmail3">Email address</label>
-						    <input type="email" class="form-control" id="" placeholder="Email">
-						  </div>
-						  <button type="submit" class="btn btn-primary">Send</button>
+							<div class="form-group">
+								<label class="sr-only" for="exampleInputEmail3">Email address</label>
+								<input type="email" class="form-control" id="" placeholder="Email">
+							</div>
+							<button type="submit" class="btn btn-primary">Send</button>
 						</form>
 					</div>
 				</div>
@@ -260,6 +261,6 @@
 	<!-- Main -->
 	<script src="js/main.js"></script>
 
-	</body>
+</body>
 </html>
 

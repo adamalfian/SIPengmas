@@ -1,5 +1,5 @@
 <?php 
-	include('functions.php');
+require 'connect.php';
 ?>
 <!DOCTYPE HTML>
 <!--
@@ -8,7 +8,7 @@
 	URL: http://gettemplates.co
 -->
 <html>
-	<head>
+<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Cube &mdash; Free Website Template, Free HTML5 Template by gettemplates.co</title>
@@ -17,7 +17,7 @@
 	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
 	<meta name="author" content="gettemplates.co" />
 
-  	<!-- Facebook and Twitter integration -->
+	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content=""/>
 	<meta property="og:image" content=""/>
 	<meta property="og:url" content=""/>
@@ -54,11 +54,11 @@
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
-	<![endif]-->
+<![endif]-->
 
-	</head>
-	<body>
-		
+</head>
+<body>
+	
 	<div class="gtco-loader"></div>
 	
 	<div id="page">
@@ -66,7 +66,7 @@
 		<nav class="gtco-nav" role="navigation">
 			<div class="gtco-container">
 				
-								<div class="row">
+				<div class="row">
 					<div class="col-sm-2 col-xs-12">
 						<div id="gtco-logo"><a href="index.php"><img src="images/logo.png" alt="Free HTML5 Website Template by GetTemplates.co"></a></div>
 					</div>
@@ -82,20 +82,21 @@
 								</ul>
 							</li>
 							
-							<?php if (!isLoggedIn())
+							<?php if (!isLoggedIn()) {
 								echo "<li><a href='login.php'>Login</a></li>";
-							else
+							} else {
 								echo "<li class='has-dropdown'>
-									<a href=>". $_SESSION["user"]["username"] ."</a>
-									<ul class='dropdown'>
-										<li><a href='daftar_kegiatan.php'>Ikut kegiatan Pengmas</a></li>
-										<li><a href='kegiatan_pengmas.php'>Kegiatan Pengmas Saya</a></li>
-										<li><a href='upload_Pembayaran.php'>Bayar kegiatan donasi</a></li>
-										<li><a href='profil.php'>Melihat Profil</a></li>
-										<li><a href='sertif.php'>Sertifikat</a></li>
-										<li><a href='index.php?logout=1'>logout</a></li>
-									</ul>
-								</li>"
+								<a href=>".$_SESSION['user']['username']."</a>
+								<ul class='dropdown'>
+								<li><a href='daftar_kegiatan.php'>Ikut kegiatan Pengmas</a></li>
+								<li><a href='kegiatan_pengmas.php'>Kegiatan Pengmas Saya</a></li>
+								<li><a href='upload_Pembayaran.php'>Bayar kegiatan donasi</a></li>
+								<li><a href='profil.php'>Melihat Profil</a></li>
+								<li><a href='sertif.php'>Sertifikat</a></li>
+								<li><a href='index.php?logout=1'>logout</a></li>
+								</ul>
+								</li>";
+							}
 							?>
 						</ul>
 					</div>
@@ -183,7 +184,7 @@
 								</div>
 							</div>
 
-														<div class="item">
+							<div class="item">
 								<div class="gtco-staff">
 									<img src="images/parijal.jpg" alt="" class="img-responsive">
 									<h2>Fakhrizal Naufal</h2>
@@ -200,7 +201,7 @@
 		</div>
 		<!-- END .gtco-services -->
 
-	
+		
 		
 
 		<footer id="gtco-footer" class="gtco-section" role="contentinfo">
@@ -237,11 +238,11 @@
 					</div>
 					<div class="col-md-4 gtco-footer-subscribe">
 						<form class="form-inline">
-						  <div class="form-group">
-						    <label class="sr-only" for="exampleInputEmail3">Email address</label>
-						    <input type="email" class="form-control" id="" placeholder="Email">
-						  </div>
-						  <button type="submit" class="btn btn-primary">Send</button>
+							<div class="form-group">
+								<label class="sr-only" for="exampleInputEmail3">Email address</label>
+								<input type="email" class="form-control" id="" placeholder="Email">
+							</div>
+							<button type="submit" class="btn btn-primary">Send</button>
 						</form>
 					</div>
 				</div>
@@ -275,6 +276,6 @@
 	<!-- Main -->
 	<script src="js/main.js"></script>
 
-	</body>
+</body>
 </html>
 

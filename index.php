@@ -133,91 +133,15 @@ require 'connect.php';
 		</header>
 		<!-- END #gtco-header -->
 
-		
-		<!-- END .gtco-client -->
-
-		<div class="gtco-services gtco-section">
-			<div class="gtco-container">
-				<div class="row row-pb-sm">
-					<div class="col-md-8 col-md-offset-2 gtco-heading text-center">
-						<p>“Help others without any reason and give without the expectation of receiving anything in return.”</p>
-						<h3>Roy T. Bennett, The Light in the Heart</h3>
-
-						
-					</div>
-				</div>
-				<div class="row row-pb-md">
-					<div class="col-md-4 col-sm-4 service-wrap">
-						<div class="service">
-							<h3><i class="ti-pie-chart"></i> Pengmas</h3>
-							<p>HMTC melalui departemen hubungan luar, divisi pengabdian masyarakat, aktif mengadakan kegiatan pengabdian masyarakat sebagai wadah dari himpunan untuk berinteraksi dan bersosialisasi dengan masyarakat sekitar.</p>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-4 service-wrap">
-						<div class="service animate-change">
-							<h3><i class="ti-ruler-pencil"></i> Buat akun</h3>
-							<p>Wahai anggota himpunan, tertarik ikut serta dalam kegiatan pengmas dan donasi HMTC? ayo daftar akun nya sekarang!.</p>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-4 service-wrap">
-						<div class="service">
-							<h3><i class="ti-settings"></i> Donasi</h3>
-							<p>Disamping kegiatan pengmas, HMTC juga aktif menyalurkan donasi dari tangan-tangan dermawan para anggota himpunan untuk disalurkan kepada yang membutuhkan</p>
-						</div>
-					</div>
-
-					<div class="clearfix visible-md-block visible-sm-block"></div>
-
-				</div>
-			</div>
-		</div>
-		<!-- END .gtco-services -->
-
-		
-		
-
 		<footer id="gtco-footer" class="gtco-section" role="contentinfo">
 			<div class="gtco-container">
 				<div class="row row-pb-md">
 					<div class="col-md-8 col-md-offset-2 gtco-cta text-center">
 						<h3>Himpunan Mahasiswa Teknik Computer-Informatika (HMTC)</h3>
-						<p><a href="#" class="btn btn-white btn-outline">Contact Us</a></p>
+						<p><a href="http://hmtc.if.its.ac.id/" class="btn btn-white btn-outline">Contact Us</a></p>
 					</div>
 				</div>
-				<div class="row row-pb-md">
-					<div class="col-md-4 gtco-widget gtco-footer-paragraph">
-						<h3>Cube</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus placerat enim et urna sagittis, rhoncus euismod.</p>
-					</div>
-					<div class="col-md-4 gtco-footer-link">
-						<div class="row">
-							<div class="col-md-6">
-								<ul class="gtco-list-link">
-									<li><a href="#">Home</a></li>
-									<li><a href="#">Features</a></li>
-									<li><a href="#">Products</a></li>
-									<li><a href="#">Testimonial</a></li>
-									<li><a href="#">Contact</a></li>
-								</ul>
-							</div>
-							<div class="col-md-6">
-								<p>
-									<a href="tel://1234567890">+1 234 4565 2342</a> <br>
-									<a href="#">info@domain.com</a>
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 gtco-footer-subscribe">
-						<form class="form-inline">
-							<div class="form-group">
-								<label class="sr-only" for="exampleInputEmail3">Email address</label>
-								<input type="email" class="form-control" id="" placeholder="Email">
-							</div>
-							<button type="submit" class="btn btn-primary">Send</button>
-						</form>
-					</div>
-				</div>
+				
 			</div>
 			
 		</footer>

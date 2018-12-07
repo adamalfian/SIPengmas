@@ -184,50 +184,17 @@ require 'connect.php'; ?>
  </div> 
 </body>
 <footer id="gtco-footer" class="gtco-section" role="contentinfo">
-    <div class="gtco-container">
-        <div class="row row-pb-md">
-            <div class="col-md-8 col-md-offset-2 gtco-cta text-center">
-                <h3>Himpunan Mahasiswa Teknik Computer-Informatika (HMTC)</h3>
-                <p><a href="#" class="btn btn-white btn-outline">Contact Us</a></p>
-            </div>
-        </div>
-        <div class="row row-pb-md">
-            <div class="col-md-4 gtco-widget gtco-footer-paragraph">
-                <h3>Cube</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus placerat enim et urna sagittis, rhoncus euismod.</p>
-            </div>
-            <div class="col-md-4 gtco-footer-link">
-                <div class="row">
-                    <div class="col-md-6">
-                        <ul class="gtco-list-link">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Features</a></li>
-                            <li><a href="#">Products</a></li>
-                            <li><a href="#">Testimonial</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <p>
-                            <a href="tel://1234567890">+1 234 4565 2342</a> <br>
-                            <a href="#">info@domain.com</a>
-                        </p>
+            <div class="gtco-container">
+                <div class="row row-pb-md">
+                    <div class="col-md-8 col-md-offset-2 gtco-cta text-center">
+                        <h3>Himpunan Mahasiswa Teknik Computer-Informatika (HMTC)</h3>
+                        <p><a href="http://hmtc.if.its.ac.id/" class="btn btn-white btn-outline">Contact Us</a></p>
                     </div>
                 </div>
+                
             </div>
-            <div class="col-md-4 gtco-footer-subscribe">
-                <form class="form-inline">
-                  <div class="form-group">
-                    <label class="sr-only" for="exampleInputEmail3">Email address</label>
-                    <input type="email" class="form-control" id="" placeholder="Email">
-                </div>
-                <button type="submit" class="btn btn-primary">Send</button>
-            </form>
-        </div>
-    </div>
-</div>
-
-</footer>
+            
+        </footer>
 
 <div class="gototop js-top">
     <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>

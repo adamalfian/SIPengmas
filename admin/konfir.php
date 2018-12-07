@@ -3,6 +3,7 @@
 require '../connect.php';
 if (!isset($_GET['id'])) {
     echo 'No ID was given...';
+    header('Location: verifikasi_user.php');
     exit;
 }
 

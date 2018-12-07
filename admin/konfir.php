@@ -3,13 +3,13 @@
 require '../connect.php';
 if (!isset($_GET['id'])) {
     echo 'No ID was given...';
+    header('Location: verifikasi_user.php');
     exit;
 }
 
 $id = $_GET['id'];
 
 $sql = "UPDATE users SET user_status='konfirmed' WHERE id=$id";
-//$sql = "DELETE FROM kegiatan WHERE id_kegiatan = $id";
 $result = mysqli_query($con, $sql);
 
 if ($result) {

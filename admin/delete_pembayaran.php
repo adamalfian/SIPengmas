@@ -3,6 +3,7 @@
 require '../connect.php';
 if (!isset($_GET['id_donasi'])) {
     echo 'No ID was given...';
+    header('Location: verifikasi_pembayaran.php');
     exit;
 }
 

@@ -1,4 +1,4 @@
-n<?php 
+<?php
 require '../connect.php';
 
 if (!isAdmin()) {

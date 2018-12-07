@@ -1,5 +1,7 @@
 <?php 
 require 'connect.php';
+if (!isLoggedIn()) {
+    header('location: login.php');}
 ?>
 <!DOCTYPE HTML>
 <!--

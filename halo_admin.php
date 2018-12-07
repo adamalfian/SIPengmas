@@ -1,6 +1,5 @@
 <?php 
 require 'connect.php';
-
 if (!isAdmin()) {
     header('location: login.php');
 }

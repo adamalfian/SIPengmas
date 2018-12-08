@@ -20,11 +20,11 @@ $con = mysqli_connect('localhost', 'root', '', 'pengmas');
         $jam = e($_POST['Jam']);
         $tempat = e($_POST['tempat']);
         $deskripsi = e($_POST['deskripsi']);
-        print "<h2>" . $nama . "</h2>";
-        print "<h2>" . $waktu . "</h2>";
-        print "<h2>" . $jam . "</h2>";
-        print "<h2>" . $tempat . "</h2>";
-        print "<h2>" . $deskripsi . "</h2>";
+        // print "<h2>" . $nama . "</h2>";
+        // print "<h2>" . $waktu . "</h2>";
+        // print "<h2>" . $jam . "</h2>";
+        // print "<h2>" . $tempat . "</h2>";
+        // print "<h2>" . $deskripsi . "</h2>";
 
         // form validation: ensure that the form is correctly filled
         if ($nama == NULL) {
@@ -39,7 +39,7 @@ $con = mysqli_connect('localhost', 'root', '', 'pengmas');
 
         // register user if there are no errors in the form
         if (count($errors) == 0) {
-            $query = "INSERT INTO pengmas (nama_pengmas, waktu, jam, tempat, deskripsi) 
+            $query = "INSERT INTO pengmas (nama_pengmas, tanggal, jam, tempat, deskripsi) 
             VALUES('$nama', '$waktu', '$jam', '$tempat', '$deskripsi')";
             mysqli_query($con, $query);
             header('location: list_pengmas.php');

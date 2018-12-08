@@ -65,7 +65,6 @@ function register()
         // }
     }
 }
-
 // return user array from their id
 function getUserById($id){
 	global $con;

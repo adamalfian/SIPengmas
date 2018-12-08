@@ -149,7 +149,7 @@ if (!isLoggedIn()) {
 								<th>Nomor Telepon</th>
 								<th>Alamat</th>
 								<th>Angkatan</th>
-								<th>Waktu Pelaksanaan</th>
+								<th>Jenis Kelamin</th>
 								<th>Status</th>
 								
 							</tr>
@@ -168,7 +168,7 @@ if (!isLoggedIn()) {
 									<td >'.$data['nohp_peserta'].'</td>
 									<td >'.$data['alamat_peserta'].'</td>
 									<td >'.$data['angkatan_peserta'].'</td>
-									<td >'.$data['tanggal'].'</td>
+									<td >'.$data['jk_peserta'].'</td>
 									<td >'.$data['status'].'</td>
 									
 

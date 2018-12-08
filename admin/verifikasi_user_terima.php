@@ -25,7 +25,7 @@ if (!isAdmin()) {
     <link href="css/style.css" rel="stylesheet">
 
     <!-- Modal -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -145,12 +145,13 @@ if (!isAdmin()) {
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h1>Verifikasi Akun Baru</h1>
+                                        <h1>Akun terverifikasi</h1>
                                         <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>
                                         <div class="table-responsive m-t-40">
                                             <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                                 <thead>
                                                     <tr>
+                                                        <th>Username</th>
                                                         <th>Nama</th>
                                                         <th>Jenis Kelamin</th>
                                                         <th>Nomor Telepon</th>
@@ -169,6 +170,7 @@ if (!isAdmin()) {
                                                         while ($data = mysqli_fetch_assoc($sql)) {
                                                             echo '
                                                             <tr>
+                                                            <td >'.$data['username'].'</td>
                                                             <td >'.$data['nama'].'</td>
                                                             <td >'.$data['jk'].'</td>
                                                             <td >'.$data['telepon'].'</td>
@@ -178,14 +180,14 @@ if (!isAdmin()) {
                                                             <td><button type="button" data-toggle="modal" data-target="#myModal3" class="btn btn-danger btn-xs"style="color: #fff; text-decoration: none; "> Hapus</button> </td>
 
                                                             </tr>
-                                                            '
-                                                            $idhapus =  ''.$data['id'].'';
+                                                            ';
+                                                            $idhapus =  "".$data['id']."";
                                                             ++$no;
                                                         }
                                                     } else {
                                                         echo '
                                                         <tr bgcolor="#fff">
-                                                        <td align="center" colspan="6" align="center">Tidak ada data!</td>
+                                                        <td align="center" colspan="8" align="center">Tidak ada data!</td>
                                                         </tr>
                                                         ';
                                                     }
@@ -207,14 +209,14 @@ if (!isAdmin()) {
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <?php
-                                                                echo '<button type="submit" class="btn"><a href="delete.php?id='.$idhapus.'">Simpan Perubahan</a></button>';
+                                                                echo '<button type="submit" class="btn"><a href="delete.php?id='.$idhapus.'">Hapus</a></button>';
                                                                 ?>
                                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                                             </div>
                                                         </div>
-                                                    </form>
                                                 </div>
                                             </div>
+                                            <!-- end of Modal -->
 
                                             <!-- End PAge Content -->
                                         </div>

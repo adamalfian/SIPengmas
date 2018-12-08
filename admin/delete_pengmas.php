@@ -13,7 +13,7 @@ $sql = "DELETE FROM pengmas WHERE id_pengmas = $id";
 $result = mysqli_query($con, $sql);
 
 if ($result) {
-    header('list_pengmas.php');
+    header('Location: list_pengmas.php');
 } else {
     echo "Gagal";
 }

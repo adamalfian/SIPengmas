@@ -146,7 +146,7 @@ if (!isAdmin()) {
                                                     <thead>
                                                         <tr>
                                                             <th>Nama Kegiatan</th>
-                                                            <th>Tanggal</th>
+                                                            <th>Jenis Kelamin</th>
                                                             <th>Nama Peserta</th>
                                                             <th>Nomor Telepon</th>
                                                             <th>Alamat</th>
@@ -165,7 +165,7 @@ if (!isAdmin()) {
                                                                 echo '
                                                                 <tr>
                                                                 <td >'.$data['ikut_kegiatan'].'</td>
-                                                                <td >'.$data['tanggal'].'</td>
+                                                                <td >'.$data['jk_peserta'].'</td>
                                                                 <td >'.$data['nama_peserta'].'</td>
                                                                 <td >'.$data['nohp_peserta'].'</td>
                                                                 <td >'.$data['alamat_peserta'].'</td>

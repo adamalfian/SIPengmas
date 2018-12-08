@@ -264,7 +264,7 @@ if (!isLoggedIn()) {
 				</form>
 			</div>
 		</div>
-		
+		<!-- end of Modal -->
 		
 
 		<footer id="gtco-footer" class="gtco-section" role="contentinfo">

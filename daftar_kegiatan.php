@@ -166,28 +166,20 @@ if (!isLoggedIn()) {
 							<input type="text" id="Angkatan" class="form-control" placeholder="Angkatan Masuk" name="angkatan_peserta" value="'.$data['angkatan'].'" readonly="">
 							</div>
 							</div>
-							'; ?>
 							<div class="row form-group">
 								<div class="col-md-12">
 									<label for="Telp">No. Telepon</label>
-									<input type="text" id="Telp" class="form-control" placeholder="Nomor Telepon Aktif" name="nohp_peserta">
+									<input type="text" id="Telp" class="form-control" placeholder="Nomor Telepon Aktif" name="nohp_peserta" value="'.$data['telepon'].'"readonly="">
 								</div>
 							</div>
 
 							<div class="row form-group">
 								<div class="col-md-12">
 									<label for="Alamat">Alamat</label>
-									<input type="text" id="Alamat" class="form-control" placeholder="Alamat Saat Ini" name="alamat_peserta">
+									<input type="text" id="Alamat" class="form-control" placeholder="Alamat Saat Ini" name="alamat_peserta" value="'.$data['alamat'].'"readonly="">
 								</div>
 							</div>
-
-							<div class="row form-group">
-								<div class="col-md-12">
-									<label for="Telp">Tanggal pelaksanaan</label>
-									<input type="date" id="tanggal" class="form-control"  name="tanggal">
-								</div>
-							</div>
-
+							'; ?>
 							<div class="form-group text-center">
 								<input type="submit" value="Submit" class="btn btn-primary">
 							</div>

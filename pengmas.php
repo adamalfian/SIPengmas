@@ -155,7 +155,7 @@ require 'connect.php';
 									<div class="gtco-staff">
 									<img src="images/staff_1.jpg" alt="" class="img-responsive">
 									<h2>'.$data['nama_pengmas'].'</h2>
-									<h4>'.$data['waktu'].' '.$data['Jam'].'</h4>
+									<h4>'.$data['tanggal'].' '.$data['Jam'].'</h4>
 									<p class="role">'.$data['tempat'].'</p>
 									<p>'.$data['deskripsi'].'</p>
 									

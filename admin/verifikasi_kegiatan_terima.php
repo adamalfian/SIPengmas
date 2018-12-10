@@ -91,11 +91,7 @@ if (!isAdmin()) {
                                 
                                 
                                 <li class="nav-label">Features</li>
-                                <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-wpforms"></i><span class="hide-menu">Pengmas</span></a>
-                                    <ul aria-expanded="false" class="collapse">
-                                        <li><a href="list_pengmas.php">Daftar Kegiatan Pengmas</a></li>
-                                    </ul>
-                                </li>
+                                <li> <a href="list_pengmas.php" ><i class="fa fa-table"></i><span class="hide-menu">Daftar Kegiatan Pengmas</span></a>
                                 <li><a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Verifikasi Pengmas</span></a>
                                     <ul aria-expanded="false" class="collapse">
                                         <!-- <li><a href="verifikasi_pembayaran.php">Verifikasi Pembayaran</a></li> -->

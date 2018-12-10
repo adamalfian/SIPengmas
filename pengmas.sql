@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 08 Des 2018 pada 09.07
+-- Generation Time: 10 Des 2018 pada 06.07
 -- Versi Server: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -58,7 +58,7 @@ CREATE TABLE `kegiatan` (
   `ikut_kegiatan` varchar(25) DEFAULT NULL,
   `nama_peserta` varchar(50) DEFAULT NULL,
   `jk_peserta` char(1) DEFAULT NULL,
-  `nohp_peserta` int(12) DEFAULT NULL,
+  `nohp_peserta` varchar(50) DEFAULT NULL,
   `alamat_peserta` varchar(99) DEFAULT NULL,
   `angkatan_peserta` int(5) DEFAULT NULL,
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -70,12 +70,10 @@ CREATE TABLE `kegiatan` (
 --
 
 INSERT INTO `kegiatan` (`id_kegiatan`, `id`, `ikut_kegiatan`, `nama_peserta`, `jk_peserta`, `nohp_peserta`, `alamat_peserta`, `angkatan_peserta`, `tanggal`, `status`) VALUES
-(8, 3, 'Kambin', 'dsadasd', 'L', 9090909, 'jncsdjvnskdjvnkjn', 15, '0000-00-00 00:00:00', 'Disetujui'),
-(12, 5, 'Kambin', 'bunda', 'P', 9090909, 'jember', 15, '2018-12-08 07:47:39', 'Disetujui'),
-(13, 5, 'Dolly', 'hilmi', 'L', 3434343, 'totototo', 2017, '2018-12-12 17:00:00', 'Disetujui'),
-(14, 3, 'Dolly', 'user', 'L', 3434343, 'totototo', 2015, '2018-12-05 17:00:00', 'Ditolak'),
-(15, 49, 'Dolly', 'Azka Yasin', 'L', 5555, 'wowhowjow', 2017, '2018-12-08 07:56:04', 'tunda'),
-(16, 49, 'Kambin', 'Azka Yasin', 'L', 5555, 'wowhowjow', 2017, '2018-12-08 07:57:34', 'tunda');
+(17, 53, 'Dolly', 'M Azka Yasin', 'L', '082229893288', 'Keputih gang 1b no. 26', 2015, '2018-12-10 04:37:45', 'Disetujui'),
+(18, 53, 'Lapindo', 'M Azka Yasin', 'L', '082229893288', 'Keputih gang 1b no. 26', 2015, '2018-12-10 04:37:54', 'tunda'),
+(19, 51, 'Kambin', 'Ichsan Sandi D', 'L', '085786869694', 'Keputih Tegal timur gg II no. 26', 2015, '2018-12-10 04:39:06', 'Ditolak'),
+(20, 51, 'Lapindo', 'Ichsan Sandi D', 'L', '085786869694', 'Keputih Tegal timur gg II no. 26', 2015, '2018-12-10 04:38:28', 'tunda');
 
 -- --------------------------------------------------------
 
@@ -92,6 +90,15 @@ CREATE TABLE `pengmas` (
   `deskripsi` varchar(500) DEFAULT NULL,
   `waktu_buat` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `pengmas`
+--
+
+INSERT INTO `pengmas` (`id_pengmas`, `nama_pengmas`, `tanggal`, `Jam`, `tempat`, `deskripsi`, `waktu_buat`) VALUES
+(1, 'Mengajar anak-anak di Gang Dol', '2018-12-12', '10:00:00', 'Dolly, Surabaya', 'Banyak sekali, anak-anak kecil lucu yang haus akan pengetahuan disini. yuk daftar dan segera berinteraksi terhadap mereka!', '2018-12-10 04:16:18'),
+(2, 'Kampung Binaan FTIK', '2018-12-16', '08:00:00', 'Jojoran, Surabaya', 'Jadilah bagian dalam pencerdasan yang diinsiasi oleh FTIF. Kalo bukan sekarang ya kapan lagi !', '2018-12-10 04:17:23'),
+(3, 'Korban Lumpur Lapindo', '2018-12-18', '09:00:00', 'Porong, Sidoarjo', 'Hidup mereka berubah selama-lamanya ketika lumpur panas menyerang rumah mereka.', '2018-12-10 04:18:11');
 
 -- --------------------------------------------------------
 
@@ -120,8 +127,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `email`, `user_type`, `password`, `nama`, `telepon`, `jk`, `alamat`, `angkatan`, `user_status`, `created_at`) VALUES
 (1, 'azka', 'azka@azka.com', 'admin', 'e10adc3949ba59abbe56e057f20f883e', 'Azka Yasin', '09090909090', 'L', 'yuyuyuyuyuy', '2015', 'konfirmed', '2018-12-03 10:15:18'),
-(48, '5115100040', 'hehe@hehe.com', 'user', 'e10adc3949ba59abbe56e057f20f883e', 'user', '09090909090', 'L', 'yoyoi', '2018', 'konfirmed', '2018-12-08 14:22:45'),
-(49, '5115100038', 'admin@manifest.com', 'user', 'e10adc3949ba59abbe56e057f20f883e', 'Azka Yasin', '5555', 'L', 'wowhowjow', '2017', 'konfirmed', '2018-12-08 14:23:11');
+(51, '5115100167', 'ichsan@ichsan.com', 'user', 'e10adc3949ba59abbe56e057f20f883e', 'Ichsan Sandi D', '085786869694', 'L', 'Keputih Tegal timur gg II no. 26', '2015', 'konfirmed', '2018-12-10 11:26:00'),
+(52, '5115100705', 'adam@adam.com', 'user', 'e10adc3949ba59abbe56e057f20f883e', 'Moh Adam ALfian', '085732889694', 'L', 'mulyosari gang 5 no.7 surabaya', '2015', 'tunda', '2018-12-10 11:26:53'),
+(53, '5115100038', 'azkayasin2@gmail.com', 'user', 'e10adc3949ba59abbe56e057f20f883e', 'M Azka Yasin', '082229893288', 'L', 'Keputih gang 1b no. 25', '2015', 'konfirmed', '2018-12-10 11:28:20');
 
 --
 -- Indexes for dumped tables
@@ -167,19 +175,19 @@ ALTER TABLE `donasi`
 -- AUTO_INCREMENT for table `kegiatan`
 --
 ALTER TABLE `kegiatan`
-  MODIFY `id_kegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_kegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `pengmas`
 --
 ALTER TABLE `pengmas`
-  MODIFY `id_pengmas` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_pengmas` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -120,7 +120,12 @@ require 'connect.php';
 											<div class="row row-pb-md">
 												<div class="col-md-8 gtco-widget gtco-footer-paragraph">
 													<h3 style="color:#fff">Hidup TC! Hidup TC! Hidup TC!</h3>
-													<p></p>
+													<p>Jl. Teknik Kimia - Gedung Informatika
+														Kampus Institut Teknologi Sepuluh Nopember Surabaya
+														Jalan Raya ITS, Sukolilo, Surabaya 60111, Indonesia
+														Telp : +62-31-5939212, 5995581, 5994251 (ext 1445, 1446) 
+														Fax : +62-31-5913804
+													email : informatika@its.ac.id</p>
 												</div>
 												
 												

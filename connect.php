@@ -29,18 +29,18 @@ function register()
     $password_2 = e($_POST['password_2']);
     $nama = e($_POST['nama']);
     $telepon = e($_POST['telepon']);
-    $jk = e($_POST['jk']);
+    $jkelamin = e($_POST['jk']);
     $alamat = e($_POST['alamat']);
     $angkatan = e($_POST['angkatan']);
 
     // form validation: ensure that the form is correctly filled
-    if ($username == NULL) {
+    if ($username == null) {
         array_push($errors, 'Username is required');
     }
-    if ($email == NULL) {
+    if ($email == null) {
         array_push($errors, 'Email is required');
     }
-    if ($password_1 == NULL) {
+    if ($password_1 == null) {
         array_push($errors, 'Password is required');
     }
     if ($password_1 != $password_2) {
@@ -54,7 +54,7 @@ function register()
         //if (isset($_POST['user_type'])) {
         //$user_type = e($_POST['user_type']);
         $query = "INSERT INTO users (username, email,user_type, password, nama, telepon, jk, alamat, angkatan) 
-			VALUES('$username', '$email', 'user', '$password', '$nama' ,'$telepon', '$jk' , '$alamat', '$angkatan')";
+			VALUES('$username', '$email', 'user', '$password', '$nama' ,'$telepon', '$jkelamin' , '$alamat', '$angkatan')";
         mysqli_query($con, $query);
         header('location: login.php');
         // } else {
@@ -66,13 +66,15 @@ function register()
     }
 }
 // return user array from their id
-function getUserById($id){
-	global $con;
-	$query = "SELECT * FROM users WHERE id=" . $id;
-	$result = mysqli_query($con, $query);
+function getUserById($id)
+{
+    global $con;
+    $query = 'SELECT * FROM users WHERE id='.$id;
+    $result = mysqli_query($con, $query);
 
-	$user = mysqli_fetch_assoc($result);
-	return $user;
+    $user = mysqli_fetch_assoc($result);
+
+    return $user;
 }
 
 // escape string
@@ -120,10 +122,10 @@ function login()
     $password = e($_POST['password']);
 
     // make sure form is filled properly
-    if ($username == NULL) {
+    if ($username == null) {
         array_push($errors, 'Username is required');
     }
-    if ($password == NULL) {
+    if ($password == null) {
         array_push($errors, 'Password is required');
     }
 
@@ -210,13 +212,13 @@ if (isset($_GET['logout'])) {
         $id = $_SESSION['user']['id'];
 
         // form validation: ensure that the form is correctly filled
-        if ($nama == NULL) {
+        if ($nama == null) {
             array_push($errors, 'Nama Dibutuhkan');
         }
-        if ($kelamin == NULL) {
+        if ($kelamin == null) {
             array_push($errors, 'Jenis kelamin Dibutuhkan');
         }
-        if ($telp == NULL) {
+        if ($telp == null) {
             array_push($errors, 'Telefon Dibutuhkan');
         }
 
